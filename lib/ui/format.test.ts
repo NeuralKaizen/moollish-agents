@@ -32,5 +32,6 @@ describe('format helpers', () => {
   it('formatea monto y maneja null', () => {
     expect(formatCurrency(null, 'USD')).toBe('—')
     expect(formatCurrency(1000000, 'USD')).toMatch(/1/)
+    expect(formatCurrency(1000, null)).toMatch(/1/)
   })
 })
