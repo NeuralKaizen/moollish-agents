@@ -14,5 +14,6 @@ export const DEFAULT_WEIGHTS: Record<CriterionKey, number> = {
   riesgo_ejecucion: 0.05,
 }
 
-// Slug de OpenRouter. Verificar el más nuevo en https://openrouter.ai/api/v1/models.
-export const DEFAULT_MODEL = process.env.AGENT_MODEL ?? 'anthropic/claude-sonnet-4.5'
+// Slug de OpenRouter. Default liviano para MVP económico (override por env AGENT_MODEL).
+// Verificar el más nuevo en https://openrouter.ai/api/v1/models. Debe soportar structured output.
+export const DEFAULT_MODEL = process.env.AGENT_MODEL ?? 'google/gemini-2.5-flash'
