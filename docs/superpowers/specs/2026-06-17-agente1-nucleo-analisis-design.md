@@ -43,7 +43,7 @@ El valor no es "responder lindo": es **capturar, analizar, puntuar de forma traz
 
 ## 3. Arquitectura del módulo
 
-Scaffolding **Next.js (App Router) + Vercel AI SDK** (stack ya decidido para el producto), pero en esta fase solo se trabaja la capa de agente:
+Proyecto TypeScript con la estructura de carpetas que Next.js adoptará después (`lib/agent`, alias `@/*`). El núcleo del agente corre por **CLI + vitest** (no necesita runtime de Next), que se monta encima en la fase de interfaz. El LLM se invoca vía **Vercel AI SDK + provider de OpenRouter**.
 
 ```
 lib/agent/
@@ -172,8 +172,9 @@ Pesos editables sin tocar prompt ni código (vía `config.ts` / env). Reproducib
 
 ## 9. Configuración
 
-- **Modelo:** `claude-sonnet-4-6` por defecto (velocidad + calidad fuerte). Override a `claude-opus-4-8` por env (`AGENT_MODEL`) para máxima calidad.
-- **API key:** `ANTHROPIC_API_KEY` en `.env` (server-side; la provee el usuario).
+- **Provider:** **OpenRouter** vía AI SDK (provider OpenRouter / OpenAI-compatible apuntando a `https://openrouter.ai/api/v1`).
+- **API key:** `OPENROUTER_API_KEY` en `.env` (server-side; la provee el usuario).
+- **Modelo:** Claude Sonnet (última, ~`anthropic/claude-sonnet-4.x`) por defecto por velocidad + calidad; override a un Opus (`anthropic/claude-opus-4.x`) por env (`AGENT_MODEL`). El slug exacto de OpenRouter se verifica en implementación contra `https://openrouter.ai/api/v1/models`. Debe elegirse un modelo que soporte **structured output** para `generateObject`.
 - **Pesos:** defaults del §9 en `config.ts`, sobre-escribibles.
 
 ---
