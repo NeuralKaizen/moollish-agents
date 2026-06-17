@@ -10,6 +10,15 @@ import { Skeleton } from '@/components/ui/skeleton'
 
 type Status = 'idle' | 'loading' | 'done' | 'error'
 
+function Brand() {
+  return (
+    <span>
+      <span className="text-lg font-bold text-primary">🐂 moollish</span>{' '}
+      <span className="text-muted-foreground">funding officer</span>
+    </span>
+  )
+}
+
 export default function Home() {
   const [status, setStatus] = useState<Status>('idle')
   const [text, setText] = useState('')
@@ -29,11 +38,32 @@ export default function Home() {
     }
   }
 
+  if (status === 'idle') {
+    return (
+      <main className="mx-auto flex min-h-dvh max-w-xl flex-col items-center justify-center gap-5 px-4 py-8 text-center">
+        <Brand />
+        <h1 className="text-3xl font-bold tracking-tight">Tu Chief Funding Officer AI</h1>
+        <p className="text-muted-foreground">
+          Pegá una convocatoria y decido si conviene aplicar, con qué vehículo, bajo qué
+          narrativa y qué hacer en las próximas 24-72h.
+        </p>
+        <div className="w-full text-left">
+          <OpportunityInput
+            value={text}
+            onChange={setText}
+            onAnalyze={run}
+            collapsed={false}
+            loading={false}
+          />
+        </div>
+      </main>
+    )
+  }
+
   return (
     <main className="mx-auto flex min-h-dvh max-w-3xl flex-col gap-4 px-4 py-8">
       <header className="flex items-center gap-2">
-        <span className="text-lg font-bold text-primary">moollish</span>
-        <span className="text-muted-foreground">funding officer</span>
+        <Brand />
       </header>
 
       <OpportunityInput
