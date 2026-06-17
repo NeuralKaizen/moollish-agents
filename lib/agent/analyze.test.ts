@@ -62,4 +62,9 @@ describe('analyzeOpportunity', () => {
     const r = await analyzeOpportunity('texto', fixedDeps(stubLlm({ deadline: { date: null, verified: false } })))
     expect(r.deadline.days_remaining).toBeNull()
   })
+
+  it('days_remaining cae a null si la fecha es inválida (no NaN)', async () => {
+    const r = await analyzeOpportunity('texto', fixedDeps(stubLlm({ deadline: { date: 'no-es-una-fecha', verified: false } })))
+    expect(r.deadline.days_remaining).toBeNull()
+  })
 })
