@@ -298,7 +298,7 @@ const validLlm = {
   effort: 'medio',
   risk: 'bajo',
   main_gap: 'aliado académico',
-  partners_needed: [{ gap: 'investigación', ally_type: 'universidad', suggested_role: 'metodología', priority: 'alta', reason: 'exige I+D' }],
+  partners_needed: [{ gap: 'investigación', ally_type: 'universidad', suggested_role: 'metodología', priority: 'alto', reason: 'exige I+D' }],
   risks: [{ type: 'tiempo', description: 'deadline ajustado', severity: 'medio' }],
   next_actions: [{ action: 'contactar universidad', responsible: 'Alex', due_date: '2026-06-19', dependency: null }],
   evidence: [{ claim: 'fecha límite', quote: 'cierre 30 sep', field: 'deadline' }],
