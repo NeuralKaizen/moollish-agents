@@ -36,8 +36,16 @@ export async function analyzeOpportunity(
   const semaforo = scoreToSemaforo(overall_score)
   const recommendation = deriveRecommendation(semaforo, hasCriticalGap(parsed))
 
+  const analyzedAt = (deps.now ?? (() => new Date().toISOString()))()
+  const days_remaining = parsed.deadline.date === null
+    ? null
+    : Math.ceil(
+        (new Date(parsed.deadline.date).getTime() - new Date(analyzedAt).getTime()) / 86_400_000,
+      )
+
   return {
     ...parsed,
+    deadline: { ...parsed.deadline, days_remaining },
     opportunity_id: (deps.uuid ?? randomUUID)(),
     overall_score,
     semaforo,
@@ -45,7 +53,7 @@ export async function analyzeOpportunity(
     analysis_meta: {
       model,
       weights_version: WEIGHTS_VERSION,
-      analyzed_at: (deps.now ?? (() => new Date().toISOString()))(),
+      analyzed_at: analyzedAt,
     },
   }
 }

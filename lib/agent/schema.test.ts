@@ -5,7 +5,7 @@ const validLlm = {
   source: { name: 'FAO', url: null, channel: 'manual', confidence_level: 'media' },
   classification: { category: 'financiacion_no_reembolsable', subcategory: null, instrument: null, themes: ['agtech'], geography: ['CO'] },
   deadline: { date: '2026-09-30', verified: true },
-  funding_amount: { value: 100000, currency: 'USD', confirmed: true, estimated_cop: null, estimated_usd: null },
+  funding_amount: { value: 100000, currency: 'USD', confirmed: true, estimated_cop: null, estimated_usd: null, range_min: null, range_max: null },
   eligibility: { eligible_entities: ['ONG'], countries: ['CO'], restrictions: [], required_documents: [], gaps: [] },
   recommended_vehicle: 'moollish_sat2farm',
   vehicle_rationale: 'componente satelital',

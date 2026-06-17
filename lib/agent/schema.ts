@@ -68,6 +68,8 @@ export const LlmAnalysisSchema = z.object({
     confirmed: z.boolean(),
     estimated_cop: z.number().nullable(),
     estimated_usd: z.number().nullable(),
+    range_min: z.number().nullable(),
+    range_max: z.number().nullable(),
   }),
   eligibility: z.object({
     eligible_entities: z.array(z.string()),
@@ -121,6 +123,9 @@ export type LlmAnalysis = z.infer<typeof LlmAnalysisSchema>
 
 // Salida final del agente: lo del LLM + campos calculados por código + metadata de auditoría.
 export const OpportunityAnalysisSchema = LlmAnalysisSchema.extend({
+  deadline: LlmAnalysisSchema.shape.deadline.extend({
+    days_remaining: z.number().nullable(), // calculado por el código, NO por el LLM
+  }),
   opportunity_id: z.string(),
   overall_score: z.number().min(0).max(100),
   semaforo: SemaforoEnum,
