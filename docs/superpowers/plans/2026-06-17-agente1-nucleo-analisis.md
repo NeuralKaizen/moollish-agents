@@ -843,11 +843,11 @@ Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
 
 - [ ] **Step 1: Escribir `lib/agent/llm.ts`**
 
-> Verificá la API exacta del provider contra `node_modules/@openrouter/ai-sdk-provider/README.md` (Task 0, Step 3) y la firma de `generateObject` en `node_modules/ai/docs/`. Ajustá si difiere de lo de abajo.
+> **API verificada en Task 0 (`ai` v6):** `generateObject` está deprecado/removido en v6. Se usa `generateText` + `Output.object({ schema })`, que devuelve `{ output }` (no `{ object }`). El provider de OpenRouter es `createOpenRouter({ apiKey })` y el modelo se obtiene con `openrouter(modelId)`.
 
 ```ts
 import 'dotenv/config'
-import { generateObject } from 'ai'
+import { generateText, Output } from 'ai'
 import { createOpenRouter } from '@openrouter/ai-sdk-provider'
 import { LlmAnalysisSchema, type LlmAnalysis } from './schema'
 import { buildSystemPrompt } from './prompt'
@@ -855,15 +855,17 @@ import { buildSystemPrompt } from './prompt'
 const openrouter = createOpenRouter({ apiKey: process.env.OPENROUTER_API_KEY })
 
 export async function generateWithOpenRouter(text: string, model: string): Promise<LlmAnalysis> {
-  const { object } = await generateObject({
+  const { output } = await generateText({
     model: openrouter(model),
-    schema: LlmAnalysisSchema,
+    output: Output.object({ schema: LlmAnalysisSchema }),
     system: buildSystemPrompt(),
     prompt: `Analizá la siguiente convocatoria y devolvé el análisis estructurado:\n\n${text}`,
   })
-  return object as LlmAnalysis
+  return output
 }
 ```
+
+> **Nota zod v4:** se instaló `zod@4`. `LlmAnalysisSchema.parse()` e `Output.object({ schema })` funcionan con v4; si aparece un error de tipos, verificá contra `node_modules/ai/docs/` y la doc de zod v4.
 
 - [ ] **Step 2: Escribir `scripts/analyze.ts`**
 
