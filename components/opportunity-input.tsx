@@ -29,12 +29,12 @@ export function OpportunityInput({
   }
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
       <Textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="Pegá el texto de la convocatoria…"
-        className="min-h-48 resize-y"
+        className="min-h-48 resize-y border-0 bg-transparent p-0 shadow-none focus-visible:ring-0 dark:bg-transparent"
       />
       <Button
         onClick={onAnalyze}
