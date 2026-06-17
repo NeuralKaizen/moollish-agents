@@ -21,6 +21,15 @@ export interface AnalyzeOpts {
   weights?: Record<CriterionKey, number>
 }
 
+// Días hasta la fecha límite. Cae a null si no hay fecha o si la fecha no es parseable
+// (un modelo liviano podría devolver una fecha inválida; no queremos un NaN en la salida).
+export function computeDaysRemaining(deadlineDate: string | null, nowIso: string): number | null {
+  if (deadlineDate === null) return null
+  const diffMs = new Date(deadlineDate).getTime() - new Date(nowIso).getTime()
+  if (!Number.isFinite(diffMs)) return null
+  return Math.ceil(diffMs / 86_400_000)
+}
+
 export async function analyzeOpportunity(
   text: string,
   deps: AnalyzeDeps,
@@ -36,8 +45,12 @@ export async function analyzeOpportunity(
   const semaforo = scoreToSemaforo(overall_score)
   const recommendation = deriveRecommendation(semaforo, hasCriticalGap(parsed))
 
+  const analyzedAt = (deps.now ?? (() => new Date().toISOString()))()
+  const days_remaining = computeDaysRemaining(parsed.deadline.date, analyzedAt)
+
   return {
     ...parsed,
+    deadline: { ...parsed.deadline, days_remaining },
     opportunity_id: (deps.uuid ?? randomUUID)(),
     overall_score,
     semaforo,
@@ -45,7 +58,7 @@ export async function analyzeOpportunity(
     analysis_meta: {
       model,
       weights_version: WEIGHTS_VERSION,
-      analyzed_at: (deps.now ?? (() => new Date().toISOString()))(),
+      analyzed_at: analyzedAt,
     },
   }
 }

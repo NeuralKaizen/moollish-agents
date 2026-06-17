@@ -18,6 +18,7 @@ export const SAMPLE_ANALYSIS: OpportunityAnalysis = {
   deadline: {
     date: '2026-07-30T23:59:00.000Z',
     verified: false,
+    days_remaining: 43,
   },
   funding_amount: {
     value: 500000,
@@ -25,6 +26,8 @@ export const SAMPLE_ANALYSIS: OpportunityAnalysis = {
     confirmed: true,
     estimated_cop: 2050000000,
     estimated_usd: 500000,
+    range_min: null,
+    range_max: null,
   },
   eligibility: {
     eligible_entities: ['Pymes agro-tecnológicas', 'Centros de investigación', 'Consorcios público-privados'],

@@ -7,7 +7,7 @@ function stubLlm(overrides: Partial<LlmAnalysis> = {}): LlmAnalysis {
     source: { name: 'FAO', url: null, channel: 'manual', confidence_level: 'media' },
     classification: { category: 'financiacion_no_reembolsable', subcategory: null, instrument: null, themes: ['agtech'], geography: ['CO'] },
     deadline: { date: '2026-09-30', verified: true },
-    funding_amount: { value: 100000, currency: 'USD', confirmed: true, estimated_cop: null, estimated_usd: null },
+    funding_amount: { value: 100000, currency: 'USD', confirmed: true, estimated_cop: null, estimated_usd: null, range_min: null, range_max: null },
     eligibility: { eligible_entities: ['ONG'], countries: ['CO'], restrictions: [], required_documents: [], gaps: [] },
     recommended_vehicle: 'moollish_sat2farm',
     vehicle_rationale: 'satelital',
@@ -51,5 +51,20 @@ describe('analyzeOpportunity', () => {
     const weights = { ...await import('./config').then((m) => m.DEFAULT_WEIGHTS) }
     const r = await analyzeOpportunity('texto', fixedDeps(llm), { weights })
     expect(r.overall_score).toBe(20)
+  })
+
+  it('computa days_remaining desde la fecha límite y el timestamp', async () => {
+    const r = await analyzeOpportunity('texto', fixedDeps(stubLlm()))
+    expect(r.deadline.days_remaining).toBe(105)
+  })
+
+  it('days_remaining es null si no hay fecha límite', async () => {
+    const r = await analyzeOpportunity('texto', fixedDeps(stubLlm({ deadline: { date: null, verified: false } })))
+    expect(r.deadline.days_remaining).toBeNull()
+  })
+
+  it('days_remaining cae a null si la fecha es inválida (no NaN)', async () => {
+    const r = await analyzeOpportunity('texto', fixedDeps(stubLlm({ deadline: { date: 'no-es-una-fecha', verified: false } })))
+    expect(r.deadline.days_remaining).toBeNull()
   })
 })

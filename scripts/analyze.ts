@@ -9,6 +9,17 @@ if (!file) {
   process.exit(1)
 }
 
-const text = readFileSync(file, 'utf8')
-const result = await analyzeOpportunity(text, { generate: generateWithOpenRouter })
-console.log(JSON.stringify(result, null, 2))
+try {
+  const text = readFileSync(file, 'utf8')
+  const result = await analyzeOpportunity(text, { generate: generateWithOpenRouter })
+  console.log(JSON.stringify(result, null, 2))
+} catch (err) {
+  const message = err instanceof Error ? err.message : String(err)
+  console.error(`\n✗ No se pudo analizar la convocatoria: ${message}`)
+  if (!process.env.OPENROUTER_API_KEY) {
+    console.error('  → Falta OPENROUTER_API_KEY. Copiá .env.example a .env y cargá tu key de OpenRouter.')
+  } else {
+    console.error('  → Si es un error de validación del esquema, probá con un modelo que soporte structured output (AGENT_MODEL).')
+  }
+  process.exit(1)
+}
