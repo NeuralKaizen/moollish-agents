@@ -44,7 +44,7 @@ export default function Home() {
         <Brand />
         <h1 className="text-3xl font-bold tracking-tight">Tu Chief Funding Officer AI</h1>
         <p className="text-muted-foreground">
-          Pegá una convocatoria y decido si conviene aplicar, con qué vehículo, bajo qué
+          Pega una convocatoria y decido si conviene aplicar, con qué vehículo, bajo qué
           narrativa y qué hacer en las próximas 24-72h.
         </p>
         <div className="w-full text-left">

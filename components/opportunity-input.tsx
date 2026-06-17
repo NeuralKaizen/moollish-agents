@@ -33,7 +33,7 @@ export function OpportunityInput({
       <Textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="Pegá el texto de la convocatoria…"
+        placeholder="Pega el texto de la convocatoria…"
         className="min-h-48 resize-y border-0 bg-transparent p-0 shadow-none focus-visible:ring-0 dark:bg-transparent"
       />
       <Button
