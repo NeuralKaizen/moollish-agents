@@ -46,7 +46,7 @@ La capa de ingestión vive en `lib/ingest/` y se monta **delante** del núcleo `
 
 ```
 lib/ingest/
-  firecrawl.ts       # Cliente fino de Firecrawl detrás de la interfaz Reader.
+  firecrawl.ts       # Cliente sobre el SDK @mendable/firecrawl-js (v4.x), detrás de la interfaz Reader.
   document-links.ts  # Heurística pura: de los links de una página, elige documentos a bajar.
   pdf.ts             # Extracción de texto de un PDF SUBIDO (local, unpdf).
   ingest.ts          # Orquesta: ingestFromUrl / ingestFromPdf / ingestFromText -> IngestResult.
@@ -67,7 +67,7 @@ interface Reader {
   scrapeDoc(url: string): Promise<{ text: string }>
 }
 ```
-Firecrawl implementa `Reader`. Si en el futuro cambiamos de proveedor, sólo se reescribe `firecrawl.ts`. El resto de la capa depende de `Reader`, no de Firecrawl.
+Firecrawl implementa `Reader` vía su SDK oficial `@mendable/firecrawl-js` (v4.x): `/scrape` renderiza JS (sirve para SPAs como SECOP II) y parsea PDFs remotos por URL (1 crédito por página). Si en el futuro cambiamos de proveedor o sumamos OCR, sólo se reescribe `firecrawl.ts`. El resto de la capa depende de `Reader`, no de Firecrawl.
 
 ---
 
@@ -116,6 +116,8 @@ El corpus `text` ensambla cada fuente con un encabezado claro para que el núcle
 ### 5.2 PDF subido
 1. Extracción local con `unpdf` (`pdf.ts`) — no requiere URL ni servicio externo.
 2. Una sola fuente `type: 'upload'`. Mismo ensamblado/presupuesto.
+3. **Límite de tamaño (Vercel):** el body de una function topa en **4.5 MB**. En esta fase el upload se valida a ≤4.5 MB con mensaje claro; PDFs más grandes quedan para una fase siguiente vía **Vercel Blob (client upload)** (browser → storage, sin pasar por la function). Los PDFs que descarga Firecrawl desde URL no sufren este límite.
+4. **PDF escaneado (solo imagen):** `unpdf` extrae la capa de texto; si no hay texto (PDF escaneado), devuelve vacío. No hacemos OCR en esta fase: se registra en `notes` ("PDF escaneado: no pude extraer texto, pegá el contenido o pasá la URL"). El OCR queda como capa futura enchufable detrás de `Reader`.
 
 ### 5.3 Texto pegado
 1. Passthrough: `IngestResult` con una fuente `type: 'page'` sintética (name: "Texto pegado", url: null). Mantiene el camino actual intacto.
@@ -131,8 +133,9 @@ Orquesta **ingest → analyze** en una sola request (con estado de carga en la U
   - `{ text: string }` → `ingestFromText` (comportamiento actual preservado)
   - `multipart/form-data` con archivo PDF → `ingestFromPdf`
 - **Salida:** el `OpportunityAnalysis` de siempre **+** un bloque `ingestion: { sources, truncated, notes }`.
-- `maxDuration` se sube (scrapear varios PDFs + LLM puede superar 60s). Timeouts por llamada a Firecrawl y caps evitan cuelgues.
-- Validación de entrada: URL bien formada; tamaño máx de PDF subido; mensajes de error claros en español.
+- **`export const maxDuration = 120`.** Con Fluid Compute (default en Vercel) el límite es 300s incluso en Hobby, así que ~30-90s entran con margen. Por Active CPU pricing, la espera de I/O a Firecrawl/OpenRouter casi no se cobra (CPU pausada durante la espera). Timeouts por llamada a Firecrawl (`FIRECRAWL_TIMEOUT_MS`) y caps evitan cuelgues.
+- **Progreso por stream (SSE):** el handler emite estados ("leyendo página…", "descargando documento 2/4…", "analizando…") en vez de un fetch ciego. Mantiene viva la conexión (clientes HTTP/1.1) y mejora la UX/demo. El último evento trae el análisis + `ingestion`.
+- Validación de entrada: URL bien formada; PDF subido ≤4.5 MB; mensajes de error claros en español.
 
 El núcleo recibe `ingestResult.text`. Opcionalmente se le pasa `url` como hint para `source.url`.
 
@@ -143,7 +146,7 @@ El núcleo recibe `ingestResult.text`. Opcionalmente se le pasa `url` como hint 
 ### 7.1 `opportunity-input.tsx` — campo inteligente
 - Detecta si lo pegado es **URL** (regex/`URL()`) vs **texto**.
 - Botón **"Subir PDF"** (input file, acepta `application/pdf`).
-- Estado `loading` con copy honesto: "Leyendo la página y descargando documentos…".
+- Estado `loading` alimentado por el **stream de progreso (SSE)** del endpoint: muestra el paso vivo ("Leyendo la página…", "Descargando documento 2/4…", "Analizando…").
 - Conserva el estado colapsado / re-analizar actual.
 
 ### 7.2 `analysis/ingestion-summary.tsx` — transparencia (nuevo)
@@ -167,7 +170,7 @@ Esto es central para **recuperar aura**: muestra que el agente fue, navegó y ba
 | `INGEST_TOTAL_BUDGET` | 120000 | Presupuesto total de caracteres del corpus. |
 | `FIRECRAWL_TIMEOUT_MS` | 30000 | Timeout por llamada. |
 
-Caps default conservadores; ajustables sin tocar código. Toda truncación se refleja en `truncated`/`notes`.
+Caps default conservadores; ajustables sin tocar código. Toda truncación se refleja en `truncated`/`notes`. **Costo de referencia:** Firecrawl Free cubre 1.000 páginas/mes (alcanza para demo + desarrollo); plan Hobby US$16/mes = 5.000 páginas. Se cobra 1 crédito por página de PDF y los créditos no se acumulan mes a mes.
 
 ---
 
@@ -175,6 +178,7 @@ Caps default conservadores; ajustables sin tocar código. Toda truncación se re
 
 - **No inventar:** la ingestión sólo agrega texto real de fuentes; el núcleo sigue marcando faltantes.
 - **Degradación honesta:** sitio bloqueado / sin contenido / robots → `notes` lo explica y pide PDF/texto. No se fabrica contenido.
+- **PDF escaneado:** sin capa de texto → `notes` lo dice; no se inventa contenido. OCR es fase futura.
 - **Truncación nunca silenciosa:** `truncated` + `notes` siempre visibles en UI.
 - **Trazabilidad:** cada fuente queda etiquetada en el corpus y listada en `sources`, así `evidence` del núcleo puede citar el origen.
 - **Respeto de términos:** sólo se descargan documentos enlazados desde la página dada por el usuario (acción autorizada por Alex), con cap de cantidad.
@@ -206,5 +210,34 @@ Caps default conservadores; ajustables sin tocar código. Toda truncación se re
 
 ## 12. Dependencias nuevas
 
-- `firecrawl` (o `fetch` directo a su REST API) — lectura web con render JS + parseo de PDFs remotos.
-- `unpdf` — extracción de texto de PDFs subidos (serverless-friendly).
+- **`@mendable/firecrawl-js`** (v4.x) — SDK oficial de Firecrawl: lectura web con render JS + parseo de PDFs remotos. (Alternativa: `fetch` directo a su REST API.)
+- **`unpdf`** (v1.x) — extracción de texto de PDFs subidos (PDF.js serverless, zero deps nativas).
+
+---
+
+## 13. Roadmap de infraestructura (fases siguientes — verificado, fuera de esta fase)
+
+Esta fase (Ingestión) **no requiere infra nueva** más allá de la API key de Firecrawl. Se documenta acá el camino completo del PDF, con la infra ya verificada como real y de bajo costo, para que el cliente vea el escalado:
+
+| Capacidad (PDF) | Fase | Infra real | Notas de verificación (jun 2026) |
+|---|---|---|---|
+| Persistencia / CRM / pipeline (§14, §15) | V1 | Postgres **Neon** (Marketplace Vercel) | free tier alcanza para arrancar |
+| Dashboard ejecutivo (§19) | V1 | Next.js + consultas a Postgres | — |
+| Conectores de monitoreo (§16) | V1 | APIs oficiales + **Vercel Cron Jobs** | ver tabla abajo |
+| RAG repositorio institucional (§4, §11) | V2 | **pgvector** en el mismo Neon + embeddings | un solo motor de datos |
+| Orquestación de subagentes + tracing (§17) | V2-V3 | AI SDK (tools/handoffs) + observabilidad (Langfuse/Vercel) | — |
+| Copiloto de formulación (§13) | V3 | sobre lo anterior | — |
+| WhatsApp/Instagram intake (§16) | V1-V2 | Webhooks de Meta + buzón | — |
+| OCR de PDFs escaneados / capturas | V2 | servicio OCR detrás de `Reader` | enchufable sin tocar el resto |
+
+**Conectores V1 — APIs verificadas en vivo:**
+
+| Fuente | API | Fricción | Cuándo |
+|---|---|---|---|
+| SECOP / datos.gov.co (Socrata) | REST/JSON, sin key, búsqueda `$q`/`$where` | Baja | V1 |
+| Grants.gov (`search2`) | REST/JSON, sin key | Baja | V1 |
+| World Bank Procurement | REST/JSON, sin key | Baja | V1 |
+| EU Funding & Tenders (SEDIA) | REST/JSON, no documentada (sin SLA) | Media | V1 best-effort |
+| UNGM | scraping HTML, endpoint no documentado | Media-alta | post-V1 |
+
+Conclusión: el plan completo del PDF es realizable con infra estándar y económica (Vercel + Neon + Firecrawl + APIs públicas). El riesgo a gestionar es de **alcance/fases**, no de infraestructura.
