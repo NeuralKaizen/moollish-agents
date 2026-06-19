@@ -41,4 +41,9 @@ describe('selectDocumentLinks', () => {
   it('docNameFromUrl saca el nombre de archivo legible', () => {
     expect(docNameFromUrl('https://fontagro.org/files/bases%20generales.pdf')).toBe('bases generales.pdf')
   })
+
+  it('no matchea extensión que aparece en el query string', () => {
+    const links = ['https://fontagro.org/view?file=doc.pdf']
+    expect(selectDocumentLinks(links, { pageUrl: PAGE, maxDocs: 5 })).toEqual([])
+  })
 })

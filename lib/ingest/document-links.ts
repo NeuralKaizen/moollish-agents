@@ -16,10 +16,11 @@ export function selectDocumentLinks(
     let abs: string
     try { abs = new URL(raw, pageUrl).toString() } catch { continue }
     if (seen.has(abs)) continue
-    if (!DOC_EXT.test(abs) && !DOC_KEYWORDS.test(abs)) continue
+    let parsed: URL
+    try { parsed = new URL(abs) } catch { continue }
+    if (!DOC_EXT.test(parsed.pathname) && !DOC_KEYWORDS.test(abs)) continue
     seen.add(abs)
-    let sameHost = false
-    try { sameHost = host != null && new URL(abs).host === host } catch { sameHost = false }
+    const sameHost = host != null && parsed.host === host
     scored.push({ url: abs, sameHost })
   }
 
