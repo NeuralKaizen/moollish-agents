@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
-    "analyze": "tsx scripts/analyze.ts"
+    "analyze": "tsx scripts/analyze.ts",
+    "ingest": "tsx scripts/ingest.ts"
   },
   "dependencies": {
     "@openrouter/ai-sdk-provider": "^2.9.1",
