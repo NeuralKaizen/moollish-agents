@@ -2,9 +2,12 @@
 
 import { useState } from 'react'
 import type { OpportunityAnalysis } from '@/lib/agent/schema'
+import type { IngestionSummary } from '@/lib/ingest/types'
 import { analyzeClient } from '@/lib/ui/analyze-client'
+import { decideInput } from '@/lib/ui/input-kind'
 import { OpportunityInput } from '@/components/opportunity-input'
 import { AnalysisView } from '@/components/analysis/analysis-view'
+import { IngestionSummaryView } from '@/components/analysis/ingestion-summary'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 
@@ -22,15 +25,24 @@ function Brand() {
 export default function Home() {
   const [status, setStatus] = useState<Status>('idle')
   const [text, setText] = useState('')
+  const [file, setFile] = useState<File | null>(null)
+  const [progress, setProgress] = useState<string | null>(null)
   const [analysis, setAnalysis] = useState<OpportunityAnalysis | null>(null)
+  const [ingestion, setIngestion] = useState<IngestionSummary | null>(null)
   const [error, setError] = useState<string | null>(null)
 
+  const canAnalyze = decideInput(text, file) !== null
+
   async function run() {
+    const input = decideInput(text, file)
+    if (!input) return
     setStatus('loading')
     setError(null)
+    setProgress(null)
     try {
-      const result = await analyzeClient(text)
-      setAnalysis(result)
+      const result = await analyzeClient(input, setProgress)
+      setAnalysis(result.analysis)
+      setIngestion(result.ingestion)
       setStatus('done')
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Error al analizar.')
@@ -44,16 +56,19 @@ export default function Home() {
         <Brand />
         <h1 className="text-3xl font-bold tracking-tight">Tu Chief Funding Officer AI</h1>
         <p className="text-muted-foreground">
-          Pega una convocatoria y decido si conviene aplicar, con qué vehículo, bajo qué
-          narrativa y qué hacer en las próximas 24-72h.
+          Pega el enlace o el texto de una convocatoria (o sube su PDF) y decido si conviene
+          aplicar, con qué vehículo, bajo qué narrativa y qué hacer en las próximas 24-72h.
         </p>
         <div className="w-full text-left">
           <OpportunityInput
             value={text}
             onChange={setText}
             onAnalyze={run}
+            onPickFile={setFile}
+            fileName={file?.name ?? null}
             collapsed={false}
             loading={false}
+            canAnalyze={canAnalyze}
           />
         </div>
       </main>
@@ -70,8 +85,12 @@ export default function Home() {
         value={text}
         onChange={setText}
         onAnalyze={run}
+        onPickFile={setFile}
+        fileName={file?.name ?? null}
         collapsed={status === 'done'}
         loading={status === 'loading'}
+        progress={progress}
+        canAnalyze={canAnalyze}
         sourceName={analysis?.source.name}
       />
 
@@ -90,6 +109,7 @@ export default function Home() {
         </div>
       )}
 
+      {status === 'done' && ingestion && <IngestionSummaryView ingestion={ingestion} />}
       {status === 'done' && analysis && <AnalysisView analysis={analysis} />}
     </main>
   )
