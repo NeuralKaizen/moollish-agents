@@ -64,4 +64,8 @@ describe('ingestFromPdf', () => {
     const r = await ingestFromPdf(new Uint8Array([1]), 'scan.pdf', { extractPdf: async () => '' })
     expect(r.notes[0]).toMatch(/escaneado/i)
   })
+
+  it('lanza si falta el extractor de PDF', async () => {
+    await expect(ingestFromPdf(new Uint8Array([1]), 'x.pdf', {})).rejects.toThrow(/extractor/i)
+  })
 })
