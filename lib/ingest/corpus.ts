@@ -29,6 +29,8 @@ export function assembleCorpus(
     const remaining = totalBudget - used
     if (body.length > remaining) { body = body.slice(0, Math.max(0, remaining)); truncated = true }
 
+    if (body.length === 0) continue
+
     blocks.push(`### ${heading(input)}\n${body}`)
     sources.push({ type: input.type, name: input.name, url: input.url, chars: body.length })
     used += body.length

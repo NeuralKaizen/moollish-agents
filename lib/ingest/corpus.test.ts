@@ -42,6 +42,9 @@ describe('assembleCorpus', () => {
     expect(r.truncated).toBe(true)
     expect(r.sources[0].chars).toBe(4)
     expect(r.sources[1].chars).toBe(2)
+    expect(r.text).toContain('aaaa')
+    expect(r.text).toContain('bb')
+    expect(r.text).not.toContain('bbb')
   })
 
   it('omite el encabezado de URL cuando es null', () => {
@@ -50,5 +53,18 @@ describe('assembleCorpus', () => {
       { maxCharsPerDoc: 1000, totalBudget: 1000 },
     )
     expect(r.text).toContain('### Documento: subido.pdf\n')
+  })
+
+  it('omite por completo los documentos que no entran en el presupuesto (sin encabezado huérfano)', () => {
+    const r = assembleCorpus(
+      [
+        { type: 'page', name: 'p', url: null, body: 'aaaaaa' },
+        { type: 'pdf', name: 'd', url: null, body: 'bbbb' },
+      ],
+      { maxCharsPerDoc: 1000, totalBudget: 6 },
+    )
+    expect(r.truncated).toBe(true)
+    expect(r.sources).toHaveLength(1)
+    expect(r.text).not.toContain('Documento: d')
   })
 })
