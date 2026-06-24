@@ -13,6 +13,7 @@ describe('PIPELINE_STATES', () => {
 
 describe('tasksFromAnalysis', () => {
   it('convierte next_actions en tareas no completadas', () => {
+    expect(SAMPLE_ANALYSIS.next_actions.length).toBeGreaterThan(0)
     const tasks = tasksFromAnalysis(SAMPLE_ANALYSIS)
     expect(tasks).toHaveLength(SAMPLE_ANALYSIS.next_actions.length)
     expect(tasks[0]).toEqual({
