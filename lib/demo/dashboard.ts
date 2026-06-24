@@ -3,6 +3,7 @@ import type { DemoOpportunity, DemoTask, PipelineState } from './types'
 import { PIPELINE_STATES } from './types'
 
 const APPLY = new Set<OpportunityAnalysis['recommendation']>(['apply_now', 'apply_with_partner'])
+const NOT_FOR_TOP = new Set<PipelineState>(['descartada', 'rechazada'])
 
 export function montoUSD(f: OpportunityAnalysis['funding_amount']): number | null {
   if (f.estimated_usd != null) return f.estimated_usd
@@ -31,7 +32,7 @@ export function pipelineByState(list: DemoOpportunity[]): StateBucket[] {
 
 export function topToApply(list: DemoOpportunity[], n = 10): DemoOpportunity[] {
   return [...list]
-    .filter((o) => APPLY.has(o.analysis.recommendation))
+    .filter((o) => APPLY.has(o.analysis.recommendation) && !NOT_FOR_TOP.has(o.state))
     .sort((a, b) => b.analysis.overall_score - a.analysis.overall_score || deadlineMs(a) - deadlineMs(b))
     .slice(0, n)
 }

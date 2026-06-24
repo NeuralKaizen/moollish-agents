@@ -60,6 +60,12 @@ describe('topToApply', () => {
     const out = topToApply([undated, dated])
     expect(out[0].analysis.opportunity_id).toBe('dated')
   })
+  it('excluye oportunidades descartadas/rechazadas aunque tengan score alto', () => {
+    const desc = setOpportunityState([opp({}, { opportunity_id: 'd', overall_score: 99, recommendation: 'apply_now' })], 'd', 'descartada')[0]
+    const ok = opp({}, { opportunity_id: 'ok', overall_score: 70, recommendation: 'apply_now' })
+    const out = topToApply([desc, ok])
+    expect(out.map((o) => o.analysis.opportunity_id)).toEqual(['ok'])
+  })
 })
 
 describe('criticalRisks', () => {

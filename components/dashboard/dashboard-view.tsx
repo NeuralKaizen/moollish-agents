@@ -2,6 +2,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import { useOpportunities } from '@/lib/demo/use-store'
 import {
   newOpportunities, pipelineByState, topToApply, criticalRisks,
@@ -12,15 +13,16 @@ import { WidgetCard } from './widget-card'
 
 export function DashboardView() {
   const list = useOpportunities()
-  const now = Date.now()
+  const [now, setNow] = useState<number | null>(null)
+  useEffect(() => { setNow(Date.now()) }, [])
 
-  const nuevas = newOpportunities(list, now, 72)
+  const nuevas = now == null ? [] : newOpportunities(list, now, 72)
   const buckets = pipelineByState(list)
   const top = topToApply(list, 5)
   const riesgos = criticalRisks(list)
   const aliados = requiredAllies(list)
   const recursos = potentialResources(list)
-  const acciones = actionsToday(list, now)
+  const acciones = now == null ? [] : actionsToday(list, now)
 
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
