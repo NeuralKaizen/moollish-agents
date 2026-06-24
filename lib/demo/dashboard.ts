@@ -67,9 +67,8 @@ export function potentialResources(list: DemoOpportunity[]): number {
 
 export interface TodayAction { opportunity: DemoOpportunity; task: DemoTask }
 export function actionsToday(list: DemoOpportunity[], now: number): TodayAction[] {
-  const endOfToday = new Date(now)
-  endOfToday.setHours(23, 59, 59, 999)
-  const limit = endOfToday.getTime()
+  const d = new Date(now)
+  const limit = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), 23, 59, 59, 999)
   const out: TodayAction[] = []
   for (const opportunity of list) {
     for (const task of opportunity.tasks) {

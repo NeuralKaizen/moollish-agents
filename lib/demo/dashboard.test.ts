@@ -54,6 +54,12 @@ describe('topToApply', () => {
     const obs = opp({}, { opportunity_id: 'obs', recommendation: 'observe' })
     expect(topToApply([obs])).toHaveLength(0)
   })
+  it('a igual score, las con deadline van antes que las sin deadline', () => {
+    const dated = opp({}, { opportunity_id: 'dated', overall_score: 80, recommendation: 'apply_now', deadline: { date: '2026-09-30', verified: true, days_remaining: 10 } })
+    const undated = opp({}, { opportunity_id: 'undated', overall_score: 80, recommendation: 'apply_now', deadline: { date: null, verified: false, days_remaining: null } })
+    const out = topToApply([undated, dated])
+    expect(out[0].analysis.opportunity_id).toBe('dated')
+  })
 })
 
 describe('criticalRisks', () => {
@@ -76,6 +82,11 @@ describe('potentialResources', () => {
     const o = opp({}, { opportunity_id: 'r', overall_score: 50, funding_amount: { ...SAMPLE_ANALYSIS.funding_amount, estimated_usd: 1000 } })
     expect(potentialResources([o])).toBe(500)
   })
+  it('omite oportunidades de monto desconocido (no las cuenta como 0 ni rompe)', () => {
+    const conMonto = opp({}, { opportunity_id: 'con', overall_score: 50, funding_amount: { ...SAMPLE_ANALYSIS.funding_amount, estimated_usd: 1000 } })
+    const sinMonto = opp({}, { opportunity_id: 'sin', overall_score: 90, funding_amount: { value: 500, currency: 'EUR', confirmed: true, estimated_cop: null, estimated_usd: null, range_min: null, range_max: null } })
+    expect(potentialResources([conMonto, sinMonto])).toBe(500)
+  })
 })
 
 describe('actionsToday', () => {
@@ -88,5 +99,14 @@ describe('actionsToday', () => {
     const o = opp()
     o.tasks = [{ action: 'x', responsible: 'y', due_date: '2026-06-23', dependency: null, done: true }]
     expect(actionsToday([o], NOW)).toHaveLength(0)
+  })
+  it('excluye tareas de mañana e incluye vencidas', () => {
+    const o = opp()
+    o.tasks = [
+      { action: 'manana', responsible: 'y', due_date: '2026-06-24', dependency: null, done: false },
+      { action: 'vencida', responsible: 'y', due_date: '2026-06-22', dependency: null, done: false },
+    ]
+    const res = actionsToday([o], NOW)
+    expect(res.map((r) => r.task.action)).toEqual(['vencida'])
   })
 })
