@@ -1,4 +1,4 @@
-import 'dotenv/config'
+import '../lib/load-env'
 import { createFirecrawlReader } from '../lib/ingest/firecrawl'
 import { ingestFromUrl } from '../lib/ingest/ingest'
 

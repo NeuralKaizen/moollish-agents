@@ -1,4 +1,4 @@
-import 'dotenv/config'
+import '../lib/load-env'
 import { readFileSync } from 'node:fs'
 import { analyzeOpportunity } from '../lib/agent/analyze'
 import { generateWithOpenRouter } from '../lib/agent/llm'
