@@ -1,0 +1,1111 @@
+{
+  "div-fund-rural": {
+    "source": {
+      "name": "DIV Fund — Request for Proposals (RFP) 2026",
+      "url": "https://www.usaid.gov/div/rfp-rural-latam-2026",
+      "channel": "web",
+      "confidence_level": "alta"
+    },
+    "classification": {
+      "category": "financiacion_no_reembolsable",
+      "subcategory": "Piloto de Innovación",
+      "instrument": "RFP para subvención",
+      "themes": [
+        "agricultura_sostenible",
+        "digitalizacion_rural",
+        "impacto_social",
+        "agtech",
+        "tecnologia_satelital",
+        "smallholders",
+        "costo_efectividad",
+        "escalabilidad"
+      ],
+      "geography": [
+        "America Latina"
+      ]
+    },
+    "deadline": {
+      "date": "2026-08-15",
+      "verified": true,
+      "days_remaining": 52
+    },
+    "funding_amount": {
+      "value": null,
+      "currency": "USD",
+      "confirmed": true,
+      "estimated_cop": null,
+      "estimated_usd": null,
+      "range_min": 50000,
+      "range_max": 175000
+    },
+    "eligibility": {
+      "eligible_entities": [
+        "organizaciones sin fines de lucro registradas",
+        "empresas sociales",
+        "cooperativas de agricultores",
+        "organizaciones privadas con mandato social demostrable"
+      ],
+      "countries": [
+        "América Latina"
+      ],
+      "restrictions": [],
+      "required_documents": [
+        "propuesta indicando número de beneficiarios",
+        "metodología de medición de impacto (preferiblemente ensayo controlado aleatorio o diseño cuasi-experimental)",
+        "análisis de costo por beneficiario",
+        "ruta de escalabilidad"
+      ],
+      "gaps": []
+    },
+    "recommended_vehicle": "alianza",
+    "vehicle_rationale": "La convocatoria busca soluciones de impacto con un fuerte componente de medición rigurosa y escalabilidad. Moollish puede aportar la tecnología AgTech y experiencia con smallholders, Sat2Farm la capacidad satelital para monitoreo y verificación de impacto, mientras que Foundation Nova puede fortalecer el componente social y de inclusión, clave para USAID. Una alianza les permitiría presentar una propuesta robusta y multi-stakeholder, maximizando la alineación con los requerimientos del DIV Fund. El vehículo líder sería Moollish o Foundation Nova, dependiendo del foco del piloto, pero la integración de Sat2Farm es esencial por la valoración de la tecnología satelital.",
+    "criteria_scores": {
+      "alineacion_estrategica": {
+        "score": 95,
+        "justification": "La convocatoria se alinea casi perfectamente con los pilares de Moollish (AgTech, smallholders, sostenibilidad), Sat2Farm (monitoreo satelital, impacto) y Foundation Nova (inclusión rural). La mención explícita de 'tecnología digital o satelital para monitoreo, verificación de impacto y trazabilidad de beneficiarios' es un fit directo con Sat2Farm y Moollish."
+      },
+      "elegibilidad": {
+        "score": 80,
+        "justification": "Moollish como empresa social o las entidades asociadas (Foundation Nova como sin fines de lucro) son elegibles. Sin embargo, se debe asegurar que Moollish cumpla con la categoría de 'organizaciones privadas con mandato social demostrable' o se priorice a Foundation Nova. No hay restricciones geográficas que nos afecten. Es un buen encaje general."
+      },
+      "monto_retorno": {
+        "score": 70,
+        "justification": "El monto es de 'USD 50.000 y USD 175.000' lo cual es un monto moderado para un piloto y suficiente para validar una propuesta en '24 meses'. El valor principal de esta convocatoria radica en el 'posicionamiento y escalamiento a través de alianzas con gobiernos, actores privados o financiadores de mayor escala', apalancándose en la validación y rigurosidad que exige DIV Fund. El retorno no es solo financiero sino estratégico a largo plazo."
+      },
+      "probabilidad_exito": {
+        "score": 85,
+        "justification": "Moollish, Sat2Farm y Foundation Nova tienen experiencia relevante con agricultores smallholder, uso de tecnología digital/satelital y componentes sociales. La capacidad de ofrecer un 'diseño de medición riguroso (preferiblemente ensayo controlado aleatorio o diseño cuasi-experimental)' y 'análisis de costo por beneficiario' será clave. Nuestra experiencia en Colombia y la región nos da una ventaja competitiva."
+      },
+      "complejidad_documental": {
+        "score": 60,
+        "justification": "La convocatoria exige un 'diseño de medición de impacto riguroso' y 'análisis de costo por beneficiario', lo cual requiere experticia técnica en evaluación de proyectos y modelado financiero. La preparación de una propuesta de alta calidad implicará una dedicación significativa para estructurar la metodología de impacto y la ruta de escalabilidad, más allá de los documentos legales estándar."
+      },
+      "tiempo_disponible": {
+        "score": 60,
+        "justification": "La fecha límite del 15 de agosto de 2026 nos da un poco menos de dos meses, lo cual es tiempo justo para formular una propuesta de la complejidad requerida, especialmente si implicará un diseño de evaluación riguroso y la articulación entre varias entidades. Se requiere una acción inmediata para comenzar."
+      },
+      "impacto_estrategico": {
+        "score": 90,
+        "justification": "El DIV Fund de USAID es un actor clave en la financiación de innovación para el desarrollo. Ser seleccionados significaría un respaldo de alto nivel a nuestra metodología de impacto y un gran impulso para la 'escalabilidad de nuestra solución a través de alianzas con gobiernos, actores privados o financiadores de mayor escala'. Abriría nuevos mercados y consolidaría nuestra reputación en la región."
+      },
+      "riesgo_ejecucion": {
+        "score": 80,
+        "justification": "El riesgo de ejecución es moderado. Tenemos la capacidad técnica y operativa para implementar un piloto en la región. El principal desafío reside en la 'rigurosidad de la medición y la capacidad de demostrar el impacto en tiempo y forma', pero es un riesgo mitigable con una planificación adecuada y un equipo de M&E sólido. Los riesgos reputacionales son bajos al colaborar con USAID."
+      }
+    },
+    "institutional_fit": {
+      "moollish": 90,
+      "sat2farm": 95,
+      "foundation_nova": 80,
+      "alliance": 100
+    },
+    "effort": "medio",
+    "risk": "medio",
+    "main_gap": "Desarrollo de una metodología de medición de impacto robusta tipo RCT o cuasi-experimental específica para nuestro piloto y la articulación rápida de la propuesta entre las diferentes capacidades de Moollish, Sat2Farm y Foundation Nova para capitalizar el requisito de evidencia rigurosa.",
+    "partners_needed": [],
+    "risks": [
+      {
+        "type": "tiempo",
+        "description": "Tiempo limitado para desarrollar una propuesta con la rigurosidad metodológica exigida en 'diseño de medición de impacto' y 'análisis de costo-efectividad'.",
+        "severity": "medio"
+      },
+      {
+        "type": "tecnico",
+        "description": "Asegurar que la propuesta cumpla con los estándares de 'ensayo controlado aleatorio o diseño cuasi-experimental' y el registro en USAID Grants.gov.",
+        "severity": "medio"
+      }
+    ],
+    "next_actions": [
+      {
+        "action": "Verificar requisitos exactos de elegibilidad y registro de 'organizaciones privadas con mandato social demostrable' para Moollish y/o Foundation Nova en el portal USAID Grants.gov.",
+        "responsible": "Líder de Alianzas y Fundraising",
+        "due_date": "2026-06-26",
+        "dependency": null
+      },
+      {
+        "action": "Asignar un equipo de formulación para revisar las bases completas del RFP y establecer un cronograma de trabajo para cumplir con la fecha de cierre, y específicamente para la 'metodología de medición de impacto' y 'análisis de costo por beneficiario'.",
+        "responsible": "Director de Proyectos",
+        "due_date": "2026-06-27",
+        "dependency": null
+      },
+      {
+        "action": "Identificar internamente experiencias previas que se adapten a los 'criterios de evidencia rigurosa' y 'escalabilidad' para posibles pilotos.",
+        "responsible": "CTO y CSO",
+        "due_date": "2026-06-28",
+        "dependency": null
+      }
+    ],
+    "evidence": [
+      {
+        "claim": "La convocatoria busca soluciones de impacto con potencial de escala.",
+        "quote": "Esta convocatoria busca soluciones probadas o prometedoras con potencial de escala",
+        "field": "alineacion_estrategica"
+      },
+      {
+        "claim": "La convocatoria prioriza intervenciones que puedan crecer a través de alianzas.",
+        "quote": "DIV Fund prioriza intervenciones que puedan crecer a través de alianzas con gobiernos, actores privados o financiadores de mayor escala una vez validado el piloto.",
+        "field": "impacto_estrategico"
+      },
+      {
+        "claim": "Los montos de financiamiento son entre USD 50.000 y USD 175.000.",
+        "quote": "Monto del financiamiento: entre USD 50.000 y USD 175.000 por proyecto",
+        "field": "funding_amount.range_min"
+      },
+      {
+        "claim": "Los fondos son no reembolsables.",
+        "quote": "Los fondos son no reembolsables.",
+        "field": "classification.category"
+      },
+      {
+        "claim": "El piloto debe ejecutarse en un máximo de 24 meses.",
+        "quote": "El piloto debe ejecutarse en un máximo de 24 meses.",
+        "field": "eligibility.restrictions"
+      },
+      {
+        "claim": "La fecha de cierre de la RFP es el 15 de agosto de 2026 (5:00 PM hora de Washington D.C.).",
+        "quote": "Fecha de cierre de RFP: 15 de agosto de 2026 (5:00 PM hora de Washington D.C.).",
+        "field": "deadline.date"
+      },
+      {
+        "claim": "El registro en USAID Grants.gov debe ser antes del 8 de agosto de 2026.",
+        "quote": "Las organizaciones interesadas deben registrarse en el portal USAID Grants.gov antes del 8 de agosto de 2026.",
+        "field": "next_actions.action"
+      },
+      {
+        "claim": "Son elegibles organizaciones sin fines de lucro, empresas sociales, cooperativas y organizaciones privadas con mandato social demostrable.",
+        "quote": "Son elegibles: organizaciones sin fines de lucro registradas, empresas sociales, cooperativas de agricultores, y organizaciones privadas con mandato social demostrable.",
+        "field": "eligibility.eligible_entities"
+      },
+      {
+        "claim": "Se valorará la integración de tecnología digital o satelital para monitoreo, verificación de impacto y trazabilidad.",
+        "quote": "Se valorará especialmente la integración de tecnología digital o satelital para monitoreo, verificación de impacto y trazabilidad de beneficiarios.",
+        "field": "alineacion_estrategica"
+      },
+      {
+        "claim": "Las propuestas deben indicar metodología de medición de impacto (preferiblemente RCT o cuasi-experimental).",
+        "quote": "Las propuestas deben indicar con precisión [...] la metodología de medición de impacto (preferiblemente ensayo controlado aleatorio o diseño cuasi-experimental)",
+        "field": "eligibility.required_documents"
+      }
+    ],
+    "missing_data": [],
+    "draft_outputs": {
+      "executive_summary": "La oportunidad del DIV Fund de USAID busca financiar pilotos de innovación en zonas rurales de América Latina que demuestren impacto riguroso y potencial de escalabilidad con pequeños productores. Es relevante para Moollish, Sat2Farm y Foundation Nova por su alineación con AgTech, soluciones satelitales y el enfoque en impacto social y sostenibilidad, brindando una plataforma para validar y escalar nuestras soluciones a través de un financiador estratégico.",
+      "narrative_angle": "Nuestra propuesta posicionará una solución tecnológica integral (Moollish + Sat2Farm) con un fuerte componente social (Foundation Nova) para agricultores smallholder, enfatizando un diseño de impacto costo-efectivo y rigurosamente medido, con una clara estrategia de escalamiento a través de alianzas con actores gubernamentales y privados en América Latina."
+    },
+    "opportunity_id": "830106fa-410a-4286-b998-8ff201427fdb",
+    "overall_score": 79,
+    "semaforo": "verde_condicionado",
+    "recommendation": "apply_with_partner",
+    "analysis_meta": {
+      "model": "google/gemini-2.5-flash",
+      "weights_version": "v1",
+      "analyzed_at": "2026-06-24T01:33:56.085Z"
+    }
+  },
+  "fao-agrinno": {
+    "source": {
+      "name": "FAO — Convocatoria AgrInnovation Challenge 2026",
+      "url": "https://www.fao.org/lac/agrinnovation-challenge-2026",
+      "channel": "manual",
+      "confidence_level": "alta"
+    },
+    "classification": {
+      "category": "financiacion_no_reembolsable",
+      "subcategory": "Reto Tecnológico",
+      "instrument": "Subvención no reembolsable (Grant)",
+      "themes": [
+        "Agricultura inteligente",
+        "Resiliencia climática",
+        "Agricultura de precisión",
+        "Monitoreo satelital",
+        "Análisis de datos",
+        "Seguridad alimentaria",
+        "Adaptación al cambio climático",
+        "Sostenibilidad productiva",
+        "Comunidades rurales vulnerables",
+        "AgTech",
+        "IoT agropecuario",
+        "Trazabilidad digital"
+      ],
+      "geography": [
+        "América Latina y el Caribe"
+      ]
+    },
+    "deadline": {
+      "date": "2026-09-30",
+      "verified": true,
+      "days_remaining": 98
+    },
+    "funding_amount": {
+      "value": 250000,
+      "currency": "USD",
+      "confirmed": true,
+      "estimated_cop": null,
+      "estimated_usd": 250000,
+      "range_min": null,
+      "range_max": 250000
+    },
+    "eligibility": {
+      "eligible_entities": [
+        "Organizaciones sin fines de lucro legalmente constituidas",
+        "Centros de investigación agropecuaria",
+        "Universidades con programas de CTeI aplicada",
+        "Consorcios público-privados"
+      ],
+      "countries": [
+        "América Latina y el Caribe"
+      ],
+      "restrictions": [
+        "Experiencia comprobada de al menos tres (3) años en proyectos agropecuarios o de agricultura inteligente",
+        "Se requiere obligatoriamente un socio implementador local con presencia en el territorio de ejecución y carta de intención firmada"
+      ],
+      "required_documents": [
+        "Concept note",
+        "Carta de intención de socio local"
+      ],
+      "gaps": [
+        "Moollish como empresa con fines de lucro no es directamente elegible como entidad principal. Foundation Nova sí lo sería.",
+        "Necesidad de asegurar un socio implementador local para cada caso de uso específico en la región."
+      ]
+    },
+    "recommended_vehicle": "alianza",
+    "vehicle_rationale": "La convocatoria busca organizaciones sin fines de lucro, por lo que Foundation Nova es el vehículo más adecuado para liderar la postulación. Sin embargo, el componente tecnológico de agricultura de precisión, monitoreo satelital y soluciones digitales lo aporta directamente Moollish y Sat2Farm. La combinación de Foundation Nova liderando con Moollish/Sat2Farm como socios tecnológicos y un aliado local implementador es la estrategia óptima para cumplir con la elegibilidad y los requisitos técnicos.",
+    "criteria_scores": {
+      "alineacion_estrategica": {
+        "score": 95,
+        "justification": "La convocatoria busca soluciones tecnológicas innovadoras en agricultura de precisión, monitoreo satelital, análisis de datos y resiliencia climática, todos core de Moollish y Sat2Farm. Prioriza seguridad alimentaria, adaptación al cambio climático y sostenibilidad productiva en comunidades rurales vulnerables, lo cual se alinea con el enfoque de impacto de Foundation Nova."
+      },
+      "elegibilidad": {
+        "score": 70,
+        "justification": "Moollish como empresa no es elegible directamente ('organizaciones sin fines de lucro'). Foundation Nova es una ONG y sí sería elegible para liderar. Se requiere un socio implementador local, lo cual implica una búsqueda y gestión de alianzas. Foundation Nova cumple el requisito de ser organización sin fines de lucro y la experiencia de 3 años se puede argumentar con proyectos previos de Moollish y/o Foundation Nova."
+      },
+      "monto_retorno": {
+        "score": 80,
+        "justification": "Un financiamiento de hasta USD 250.000 es un monto significativo para un proyecto de 18-24 meses, lo que justifica el esfuerzo de aplicación y representa una oportunidad de ingresos, posicionamiento y validación tecnológica para Moollish y un impacto social para Foundation Nova."
+      },
+      "probabilidad_exito": {
+        "score": 85,
+        "justification": "Moollish y Sat2Farm tienen un componente tecnológico demostrable muy fuerte y alineado ('monitoreo satelital, IoT agropecuario, trazabilidad digital'). La experiencia en agricultura inteligente y proyectos agropecuarios es sólida. El diferencial está en la madurez de la tecnología y la capacidad de implementación, aunque la necesidad de un socio local requiere búsqueda y articulación."
+      },
+      "complejidad_documental": {
+        "score": 75,
+        "justification": "La primera etapa es una 'concept note', lo que simplifica el inicio. El requisito de 'socio implementador local con presencia en el territorio de ejecución y carta de intención firmada' añade complejidad, pues demanda identificar y formalizar una alianza previa a la postulación completa. No menciona cofinanciación, auditorías o certificaciones específicas para la concept note."
+      },
+      "tiempo_disponible": {
+        "score": 90,
+        "justification": "La fecha límite para enviar la concept note es el 30 de septiembre de 2026. Aunque hoy es 24 de junio de 2026, esto deja un plazo de más de tres meses para formular y conseguir el socio local, lo cual es holgado para una concept note."
+      },
+      "impacto_estrategico": {
+        "score": 90,
+        "justification": "La FAO es un financiador de primer nivel y este reto específico es para ALC, lo que abre un mercado y territorio clave para Moollish y Sat2Farm. Permite posicionar las soluciones tecnológicas en un contexto de desarrollo y resiliencia climática, ampliando el pipeline con un actor global y validando la tecnología a gran escala. Potencial de escalabilidad regional muy alto."
+      },
+      "riesgo_ejecucion": {
+        "score": 80,
+        "justification": "El riesgo principal es la identificación y formalización efectiva de un socio local robusto y alineado con los objetivos de la FAO y nuestras capacidades. El desarrollo tecnológico ya está avanzado, minimizando riesgos técnicos intrínsecos. Los plazos son razonables y el apoyo de la FAO mitiga el riesgo reputacional si se ejecuta correctamente."
+      }
+    },
+    "institutional_fit": {
+      "moollish": 80,
+      "sat2farm": 90,
+      "foundation_nova": 95,
+      "alliance": 98
+    },
+    "effort": "medio",
+    "risk": "medio",
+    "main_gap": "La principal brecha es la elegibilidad de Moollish como entidad con fines de lucro y la obligatoriedad de un socio implementador local. Foundation Nova puede liderar, pero la búsqueda y concreción de este socio con carta de intención es crítica y debe ser gestionada proactivamente.",
+    "partners_needed": [
+      {
+        "gap": "Elegibilidad institucional (entidad sin fines de lucro) y componente social/comunitario",
+        "ally_type": "Foundation Nova",
+        "suggested_role": "Líder de la propuesta, gestor del componente social, garante de elegibilidad",
+        "priority": "alto",
+        "reason": "Moollish como empresa no es directamente elegible. Foundation Nova cumple el requisito de ser 'organización sin fines de lucro legalmente constituida'."
+      },
+      {
+        "gap": "Implementación local y presencia en el territorio de ejecución",
+        "ally_type": "ONG local, asociación de productores, entidad de desarrollo rural, universidad local",
+        "suggested_role": "Socio implementador de campo, enlace con comunidades, validador de impacto, co-formulador",
+        "priority": "alto",
+        "reason": "La convocatoria exige 'obligatoriamente un socio implementador local con presencia en el territorio de ejecución y carta de intención firmada'."
+      }
+    ],
+    "risks": [
+      {
+        "type": "ejecucion",
+        "description": "Dificultad para encontrar un socio implementador local idóneo y que firme una carta de intención en el período de concept note.",
+        "severity": "medio"
+      },
+      {
+        "type": "financiero",
+        "description": "Aunque es no reembolsable, la gestión de un grant de USD 250k requiere capacidad administrativa y financiera de Foundation Nova, además de posibles costos de cofinanciación no explícitos.",
+        "severity": "bajo"
+      }
+    ],
+    "next_actions": [
+      {
+        "action": "Coordinar reunión interna con los líderes de Foundation Nova y Sat2Farm para definir la estrategia de aplicación y roles, dado que es un 'consorcio público-privado' es elegible, pero se requiere que la propuesta sea en una entidad sin fines de lucro.",
+        "responsible": "Chief Funding Officer",
+        "due_date": "2026-06-26",
+        "dependency": null
+      },
+      {
+        "action": "Investigar posibles socios implementadores locales en América Latina y el Caribe, con experiencia en las temáticas y un enfoque en comunidades rurales, para sondear su interés y capacidad de co-formulación.",
+        "responsible": "Gerente de Proyectos / Responsable de Alianzas",
+        "due_date": "2026-06-28",
+        "dependency": "Definición de lineamientos internos con Foundation Nova/Sat2Farm."
+      },
+      {
+        "action": "Elaborar un primer borrador de la 'concept note' destacando el componente tecnológico de Moollish/Sat2Farm y el enfoque social de Foundation Nova, y los posibles impactos en seguridad alimentaria y resiliencia climática.",
+        "responsible": "Director de Impacto / CTO",
+        "due_date": "2026-06-29",
+        "dependency": "Definición de roles y vehículos."
+      }
+    ],
+    "evidence": [
+      {
+        "claim": "La convocatoria busca soluciones tecnológicas innovadoras que combinen agricultura de precisión, monitoreo satelital, análisis de datos y enfoque en resiliencia climática para fortalecer los sistemas agroalimentarios en la región.",
+        "quote": "La convocatoria busca soluciones tecnológicas innovadoras que combinen agricultura de precisión, monitoreo satelital, análisis de datos y enfoque en resiliencia climática para fortalecer los sistemas agroalimentarios en la región.",
+        "field": "classification.themes"
+      },
+      {
+        "claim": "Prioriza soluciones que aborden la seguridad alimentaria, la adaptación al cambio climático y la sostenibilidad productiva en comunidades rurales vulnerables.",
+        "quote": "Se priorizan soluciones que aborden la seguridad alimentaria, la adaptación al cambio climático y la sostenibilidad productiva en comunidades rurales vulnerables.",
+        "field": "classification.themes"
+      },
+      {
+        "claim": "Pueden presentar propuestas organizaciones sin fines de lucro legalmente constituidas, centros de investigación agropecuaria, universidades con programas de CTeI aplicada, y consorcios público-privados.",
+        "quote": "Pueden presentar propuestas: organizaciones sin fines de lucro legalmente constituidas, centros de investigación agropecuaria, universidades con programas de CTeI aplicada, y consorcios público-privados.",
+        "field": "eligibility.eligible_entities"
+      },
+      {
+        "claim": "Se requiere obligatoriamente un socio implementador local con presencia en el territorio de ejecución y carta de intención firmada.",
+        "quote": "Se requiere obligatoriamente un socio implementador local con presencia en el territorio de ejecución y carta de intención firmada.",
+        "field": "eligibility.restrictions"
+      },
+      {
+        "claim": "Financiamiento disponible: hasta USD 250.000 por proyecto seleccionado, en modalidad de subvención no reembolsable.",
+        "quote": "Financiamiento disponible: hasta USD 250.000 por proyecto seleccionado, en modalidad de subvención no reembolsable.",
+        "field": "funding_amount.value"
+      },
+      {
+        "claim": "Fecha de cierre para envío de concept notes: 30 de septiembre de 2026 (23:59 UTC-5).",
+        "quote": "Fecha de cierre para envío de concept notes: 30 de septiembre de 2026 (23:59 UTC-5).",
+        "field": "deadline.date"
+      },
+      {
+        "claim": "Las organizaciones participantes deben contar con experiencia comprobada de al menos tres (3) años en proyectos agropecuarios o de agricultura inteligente.",
+        "quote": "Las organizaciones participantes deben contar con experiencia comprobada de al menos tres (3) años en proyectos agropecuarios o de agricultura inteligente.",
+        "field": "eligibility.restrictions"
+      },
+      {
+        "claim": "Mayor información en: https://www.fao.org/lac/agrinnovation-challenge-2026",
+        "quote": "Mayor información en: https://www.fao.org/lac/agrinnovation-challenge-2026",
+        "field": "source.url"
+      }
+    ],
+    "missing_data": [],
+    "draft_outputs": {
+      "executive_summary": "La FAO, a través del AgrInnovation Challenge 2026, busca soluciones tecnológicas innovadoras en agricultura de precisión y monitoreo satelital para impulsar la resiliencia climática y la seguridad alimentaria en ALC, ofreciendo hasta USD 250.000. Representa una excelente oportunidad para posicionar las capacidades de Sat2Farm y Moollish en un contexto de impacto social liderado por Foundation Nova, abriendo mercados clave en la región.",
+      "narrative_angle": "Nuestra propuesta debe destacar la capacidad integral de Moollish y Sat2Farm para proveer herramientas de agricultura inteligente de última generación (monitoreo satelital, IoT, trazabilidad) y cómo Foundation Nova las canaliza para fortalecer la seguridad alimentaria y la adaptación al cambio climático en comunidades rurales vulnerables de ALC, demostrando escalabilidad y sostenibilidad del impacto."
+    },
+    "opportunity_id": "e55a6ef7-ff4b-40be-9dcb-6dd8a59665d4",
+    "overall_score": 84,
+    "semaforo": "verde_condicionado",
+    "recommendation": "apply_with_partner",
+    "analysis_meta": {
+      "model": "google/gemini-2.5-flash",
+      "weights_version": "v1",
+      "analyzed_at": "2026-06-24T01:34:13.109Z"
+    }
+  },
+  "fontagro-ganaderia": {
+    "source": {
+      "name": "FONTAGRO — Convocatoria Regional 2026",
+      "url": "https://www.fontagro.org/convocatoria-ganaderia-regenerativa-2026",
+      "channel": "web",
+      "confidence_level": "alta"
+    },
+    "classification": {
+      "category": "financiacion_no_reembolsable",
+      "subcategory": "investigacion_aplicada_innovacion",
+      "instrument": "Subsidio/Grant",
+      "themes": [
+        "ganaderia_regenerativa",
+        "sistemas_silvopastoriles",
+        "manejo_sostenible_pasturas",
+        "huella_carbono_ganaderia",
+        "biodiversidad",
+        "productividad_agropecuaria",
+        "cambio_climatico",
+        "AgTech",
+        "transferencia_tecnologica"
+      ],
+      "geography": [
+        "America Latina y el Caribe"
+      ]
+    },
+    "deadline": {
+      "date": "2027-02-28",
+      "verified": true,
+      "days_remaining": 249
+    },
+    "funding_amount": {
+      "value": 400000,
+      "currency": "USD",
+      "confirmed": true,
+      "estimated_cop": null,
+      "estimated_usd": 400000,
+      "range_min": 400000,
+      "range_max": 400000
+    },
+    "eligibility": {
+      "eligible_entities": [
+        "instituciones de investigacion agropecuaria",
+        "universidades con programas de agronomia o zootecnia",
+        "organizaciones del sector ganadero con capacidad tecnica demostrada"
+      ],
+      "countries": [
+        "America Latina y el Caribe"
+      ],
+      "restrictions": [
+        "Cada propuesta debe contar con al menos un (1) pais socio miembro de FONTAGRO, ademas del pais lider del proyecto.",
+        "Se aceptan consorcios de hasta cuatro paises.",
+        "Participacion indispensable de un centro de investigacion acreditado (INIA, CIAT, CATIE, o equivalente nacional reconocido por FONTAGRO)."
+      ],
+      "required_documents": [
+        "propuesta tecnica",
+        "presupuesto detallado",
+        "cartas de compromiso institucional de todos los socios",
+        "teoria de cambio documentada"
+      ],
+      "gaps": [
+        "Moollish no es una institucion de investigacion agropecuaria ni universidad, por lo que requiere un aliado principal con este perfil.",
+        "Necesidad de un pais socio miembro de FONTAGRO, ademas de Colombia (si es el lider), y un centro de investigacion acreditado."
+      ]
+    },
+    "recommended_vehicle": "alianza",
+    "vehicle_rationale": "FONTAGRO se enfoca en investigación aplicada y requiere instituciones académicas/de investigación como líderes y la participación de centros de investigación acreditados. Moollish y Sat2Farm, aunque tienen la tecnología pertinente, no encajan directamente como proponentes principales, por lo que una alianza estratégica con una universidad o un centro de investigación agropecuario es esencial. El aporte de Moollish sería la validación y escalamiento tecnológico, mientras que Sat2Farm aportaría el monitoreo satelital clave para la huella de carbono.",
+    "criteria_scores": {
+      "alineacion_estrategica": {
+        "score": 95,
+        "justification": "La convocatoria se alinea completamente con las capacidades de Moollish (ganadería inteligente, trazabilidad, productividad) y Sat2Farm (monitoreo de huella de carbono, manejo de pasturas, biodiversidad vía satélite). El enfoque en ganadería regenerativa y sistemas silvopastoriles es central."
+      },
+      "elegibilidad": {
+        "score": 40,
+        "justification": "Moollish/Sat2Farm directamente no son el tipo de entidad proponente principal (instituciones de investigación, universidades). Se requiere obligatoriamente un consorcio con al menos un centro de investigación acreditado y un país socio de FONTAGRO. Es una barrera salvable con aliados estratégicos pero reduce el score inicial."
+      },
+      "monto_retorno": {
+        "score": 85,
+        "justification": "USD 400.000 es un monto significativo que permite desarrollar un proyecto de investigación aplicada e innovación con enfoque regional. El potencial de cofinanciamiento al 30% es manejable. El retorno esperado incluye posicionamiento en ganadería regenerativa y acceso a mercados regionales."
+      },
+      "probabilidad_exito": {
+        "score": 70,
+        "justification": "La probabilidad de éxito es buena si se consigue el consorcio adecuado. Moollish y Sat2Farm tienen la tecnología diferencial y capacidad de generar y validar las tecnologías y buenas prácticas que busca el financiador. La experiencia previa en ganadería y AgTech es relevante, pero la calidad del aliado investigador será clave."
+      },
+      "complejidad_documental": {
+        "score": 60,
+        "justification": "La convocatoria exige propuesta técnica, presupuesto, cartas de compromiso de múltiples socios y una teoría de cambio documentada. La coordinación de un consorcio internacional de hasta cuatro países, con un centro de investigación, implica una complejidad documental que requiere esfuerzo, especialmente en la integración de propuestas y presupuestos de diferentes entidades."
+      },
+      "tiempo_disponible": {
+        "score": 90,
+        "justification": "La fecha límite para la propuesta completa es el 28 de febrero de 2027, con un plazo para la carta de interés hasta el 15 de enero de 2027. Esto ofrece suficiente tiempo para estructurar la propuesta, identificar y formalizar el consorcio, y desarrollar la teoría de cambio, aunque el proceso es largo y requiere planificación."
+      },
+      "impacto_estrategico": {
+        "score": 95,
+        "justification": "Esta convocatoria representa una oportunidad excelente para posicionar a Moollish y Sat2Farm como líderes en ganadería regenerativa y sostenibilidad en América Latina y el Caribe. Abre las puertas a nuevos mercados regionales, valida tecnología y fomenta alianzas estratégicas con instituciones de investigación y socios internacionales."
+      },
+      "riesgo_ejecucion": {
+        "score": 75,
+        "justification": "El principal riesgo es la coordinación y validación con los múltiples socios, especialmente el centro de investigación acreditado, y la capacidad de integrar la tecnología de Moollish/Sat2Farm dentro de la metodología de investigación aplicada. El riesgo de ejecución técnica del proyecto es bajo dada la experiencia de los vehículos, pero la complejidad del consorcio internacional añade un riesgo medio."
+      }
+    },
+    "institutional_fit": {
+      "moollish": 80,
+      "sat2farm": 90,
+      "foundation_nova": 30,
+      "alliance": 100
+    },
+    "effort": "alto",
+    "risk": "medio",
+    "main_gap": "Conseguir una institución de investigación agropecuaria o universidad como socio principal, y un centro de investigación acreditado (INIA, CIAT, CATIE o equivalente) que lidere la propuesta y la parte metodológica, además de identificar al menos un país socio miembro de FONTAGRO (adicional al país líder si es Colombia).",
+    "partners_needed": [
+      {
+        "gap": "Liderazgo institucional y expertise metodológico en investigación agropecuaria.",
+        "ally_type": "Institución de investigación agropecuaria o Universidad con programas de agronomía/zootecnia / Centro de investigación acreditado (INIA, CIAT, CATIE o equivalente)",
+        "suggested_role": "Líder técnico y metodológico del proyecto, responsable de la formulación y validación de tecnologías.",
+        "priority": "alto",
+        "reason": "Es un requisito obligatorio que el proponente principal sea una de estas entidades y cuente con un centro de investigación acreditado. Moollish puede aportar la tecnología, pero no el rol institucional o metodológico inicial para FONTAGRO."
+      },
+      {
+        "gap": "Participación de un país socio miembro de FONTAGRO.",
+        "ally_type": "Institución/Entidad de un país miembro de FONTAGRO",
+        "suggested_role": "Socio para la implementación o validación regional de la tecnología.",
+        "priority": "alto",
+        "reason": "Es un requisito explícito tener al menos un país socio miembro de FONTAGRO además del país líder."
+      }
+    ],
+    "risks": [
+      {
+        "type": "ejecucion",
+        "description": "Dificultad en la coordinación de un consorcio internacional de hasta cuatro países y la integración funcional de la tecnología de Moollish/Sat2Farm con la metodología de investigación del líder.",
+        "severity": "medio"
+      }
+    ],
+    "next_actions": [
+      {
+        "action": "Identificar potenciales universidades o centros de investigación agropecuaria en Colombia o países miembros de FONTAGRO (ej. INIA, CIAT, CATIE, AGROSAVIA) con expertise en ganadería regenerativa y sistemas silvopastoriles para sondear interés en un consorcio.",
+        "responsible": "Head de Alianzas y Proyectos Estratégicos",
+        "due_date": "2026-06-27",
+        "dependency": null
+      },
+      {
+        "action": "Preparar un borrador de capacidades de Moollish y Sat2Farm en ganadería sostenible y huella de carbono para presentar a posibles aliados.",
+        "responsible": "Equipo Técnico y Marketing",
+        "due_date": "2026-06-28",
+        "dependency": null
+      },
+      {
+        "action": "Revisar lista de países miembros de FONTAGRO para identificar aquellos con mayor necesidad o experiencia en ganadería regenerativa y potencial de colaboración.",
+        "responsible": "Head de Alianzas",
+        "due_date": "2026-06-26",
+        "dependency": null
+      }
+    ],
+    "evidence": [
+      {
+        "claim": "La convocatoria busca proyectos de investigación aplicada e innovación en ganadería regenerativa, manejo sostenible de pasturas y sistemas silvopastoriles.",
+        "quote": "FONTAGRO abre su convocatoria regional 2026 orientada a proyectos de investigación aplicada e innovación en ganadería regenerativa, manejo sostenible de pasturas y sistemas silvopastoriles.",
+        "field": "classification.themes"
+      },
+      {
+        "claim": "El objetivo es generar y validar tecnologías y buenas prácticas que reduzcan la huella de carbono de los sistemas ganaderos, mejoren la biodiversidad y aumenten la productividad en el contexto del cambio climático.",
+        "quote": "El objetivo es generar y validar tecnologías y buenas prácticas que reduzcan la huella de carbono de los sistemas ganaderos, mejoren la biodiversidad y aumenten la productividad en el contexto del cambio climático.",
+        "field": "classification.themes"
+      },
+      {
+        "claim": "Está dirigida a instituciones de investigación agropecuaria, universidades con programas de agronomía o zootecnia, y organizaciones del sector ganadero con capacidad técnica demostrada.",
+        "quote": "La convocatoria está dirigida a instituciones de investigación agropecuaria, universidades con programas de agronomía o zootecnia, y organizaciones del sector ganadero con capacidad técnica demostrada.",
+        "field": "eligibility.eligible_entities"
+      },
+      {
+        "claim": "Es requisito obligatorio que cada propuesta cuente con al menos un (1) país socio miembro de FONTAGRO, además del país líder del proyecto.",
+        "quote": "Es requisito obligatorio que cada propuesta cuente con al menos un (1) país socio miembro de FONTAGRO, además del país líder del proyecto;",
+        "field": "eligibility.restrictions"
+      },
+      {
+        "claim": "Se aceptan consorcios de hasta cuatro países.",
+        "quote": "se aceptan consorcios de hasta cuatro países.",
+        "field": "eligibility.restrictions"
+      },
+      {
+        "claim": "Es condición indispensable la participación de un centro de investigación acreditado (INIA, CIAT, CATIE, o equivalente nacional reconocido por FONTAGRO).",
+        "quote": "Asimismo, es condición indispensable la participación de un centro de investigación acreditado (INIA, CIAT, CATIE, o equivalente nacional reconocido por FONTAGRO) en el consorcio proponente, con rol metodológico explícito en el diseño y validación de la intervención.",
+        "field": "eligibility.restrictions"
+      },
+      {
+        "claim": "Monto máximo financiable: USD 400.000 por proyecto.",
+        "quote": "Monto máximo financiable: USD 400.000 por proyecto",
+        "field": "funding_amount.value"
+      },
+      {
+        "claim": "Posibilidad de cofinanciamiento del 30% por parte de los países socios.",
+        "quote": "con posibilidad de cofinanciamiento del 30% por parte de los países socios.",
+        "field": "funding_amount.confirmed"
+      },
+      {
+        "claim": "Duración del proyecto: 36 meses.",
+        "quote": "Duración del proyecto: 36 meses.",
+        "field": "classification.instrument"
+      },
+      {
+        "claim": "Fecha límite de envío de propuesta completa: 28 de febrero de 2027.",
+        "quote": "Fecha límite de envío de propuesta completa: 28 de febrero de 2027.",
+        "field": "deadline.date"
+      },
+      {
+        "claim": "Se aceptarán cartas de interés hasta el 15 de enero de 2027.",
+        "quote": "Se aceptarán cartas de interés hasta el 15 de enero de 2027.",
+        "field": "deadline.date"
+      },
+      {
+        "claim": "Documentos requeridos: propuesta técnica, presupuesto detallado, cartas de compromiso institucional de todos los socios y teoría de cambio.",
+        "quote": "Documentos requeridos: propuesta técnica, presupuesto detallado, cartas de compromiso institucional de todos los socios y teoría de cambio.",
+        "field": "eligibility.required_documents"
+      },
+      {
+        "claim": "Las propuestas deben incluir una teoría de cambio documentada que articule la cadena lógica desde las actividades hasta el impacto.",
+        "quote": "Las propuestas deben incluir una teoría de cambio documentada que articule la cadena lógica desde las actividades hasta el impacto en sistemas ganaderos sostenibles y reducción de emisiones.",
+        "field": "eligibility.required_documents"
+      }
+    ],
+    "missing_data": [],
+    "draft_outputs": {
+      "executive_summary": "La convocatoria de FONTAGRO 2026 busca proyectos de investigación aplicada en ganadería regenerativa y sistemas silvopastoriles para reducir la huella de carbono y aumentar la productividad en ALC. Es una excelente oportunidad para Moollish y Sat2Farm para validar y escalar su tecnología satelital en ganadería sostenible, aunque requiere la formación de un consorcio con un líder de investigación académica y socios internacionales.",
+      "narrative_angle": "Posicionar a Moollish y Sat2Farm como los socios tecnológicos clave que aportan la capacidad de monitoreo satelital avanzado y las herramientas digitales para la gestión y validación de la huella de carbono y la mejora de la productividad en sistemas de ganadería regenerativa y silvopastoriles. Enfatizar la escalabilidad regional de la plataforma y su contribución directa a la reducción de emisiones y la biodiversidad, bajo el marco metodológico del socio investigador principal."
+    },
+    "opportunity_id": "b6632dfa-046f-4ceb-bfae-96c2dacf2eb8",
+    "overall_score": 77,
+    "semaforo": "verde_condicionado",
+    "recommendation": "apply_with_partner",
+    "analysis_meta": {
+      "model": "google/gemini-2.5-flash",
+      "weights_version": "v1",
+      "analyzed_at": "2026-06-24T01:34:29.738Z"
+    }
+  },
+  "minciencias-966": {
+    "source": {
+      "name": "MINCIENCIAS — Términos de Referencia Convocatoria 966",
+      "url": "https://minciencias.gov.co/convocatoria-966-2026-agro-cti",
+      "channel": "manual",
+      "confidence_level": "alta"
+    },
+    "classification": {
+      "category": "programas_territoriales",
+      "subcategory": "CTeI",
+      "instrument": "Cofinanciación de proyectos de I+D+i",
+      "themes": [
+        "agricultura",
+        "ganadería",
+        "AgTech",
+        "tecnologías digitales",
+        "automatización",
+        "agricultura de precisión",
+        "inteligencia artificial",
+        "innovación",
+        "investigación aplicada",
+        "desarrollo tecnológico"
+      ],
+      "geography": [
+        "Colombia"
+      ]
+    },
+    "deadline": {
+      "date": "2026-10-10",
+      "verified": true,
+      "days_remaining": 108
+    },
+    "funding_amount": {
+      "value": 1200000000,
+      "currency": "COP",
+      "confirmed": true,
+      "estimated_cop": 1200000000,
+      "estimated_usd": 300000,
+      "range_min": null,
+      "range_max": null
+    },
+    "eligibility": {
+      "eligible_entities": [
+        "grupos de investigación reconocidos y clasificados por MINCIENCIAS",
+        "universidades acreditadas",
+        "centros de investigación y desarrollo tecnológico",
+        "empresas privadas con NIT vigente"
+      ],
+      "countries": [
+        "Colombia"
+      ],
+      "restrictions": [
+        "No aplican personas naturales",
+        "No aplican entidades extranjeras como ejecutoras principales",
+        "Conformación obligatoria de alianzas universidad-empresa (al menos una empresa del sector privado y una universidad o IES acreditada)",
+        "Contrapartida mínima del 30% por parte de la empresa aliada",
+        "Ejecución en el territorio colombiano",
+        "Indicadores mínimos de CTeI exigidos: 1 artículo científico, 1 producto de apropiación social, 1 innovación de proceso/producto registrada"
+      ],
+      "required_documents": [
+        "Formulario de propuesta",
+        "Carta de aval institucional",
+        "Acuerdos de alianza firmados",
+        "Hoja de vida del equipo (CvLAC)",
+        "Presupuesto y cronograma"
+      ],
+      "gaps": [
+        "Necesidad de asegurar una alianza con una universidad o institución de educación superior acreditada como ejecutora principal con rol metodológico.",
+        "Moollish o Sat2Farm deben ser la empresa aliada y aportar el 30% de contrapartida."
+      ]
+    },
+    "recommended_vehicle": "alianza",
+    "vehicle_rationale": "La convocatoria exige explícitamente una alianza universidad-empresa, donde Moollish o Sat2Farm actuarían como la empresa privada beneficiaria y aportante de contrapartida, mientras que la universidad sería la ejecutora principal. Esto requiere la coordinación inter-institucional.",
+    "criteria_scores": {
+      "alineacion_estrategica": {
+        "score": 100,
+        "justification": "La convocatoria se centra en I+D+i en el sector agropecuario, con énfasis en tecnologías digitales, automatización, agricultura de precisión e inteligencia artificial, lo cual se alinea perfectamente con las capacidades y el modelo de negocio de Moollish y Sat2Farm."
+      },
+      "elegibilidad": {
+        "score": 60,
+        "justification": "Moollish/Sat2Farm son empresas privadas con NIT vigente elegibles como 'empresa del sector privado'. Sin embargo, no pueden ser ejecutores principales y se exige una alianza obligatoria con una universidad acreditada que sea \"ejecutora principal con rol metodológico\". Esto implica gestionar una alianza clave sin la cual no somos elegibles directamente como líderes."
+      },
+      "monto_retorno": {
+        "score": 90,
+        "justification": "El monto máximo de cofinanciación de COP 1.200.000.000 es significativo y, sumado al aporte de contrapartida, permite desarrollar un proyecto de I+D+i robusto con potencial de retorno en posicionamiento tecnológico y validación de nuevas soluciones."
+      },
+      "probabilidad_exito": {
+        "score": 80,
+        "justification": "Moollish y Sat2Farm tienen experiencia y productos relevantes en las áreas tecnológicas solicitadas. La probabilidad de éxito dependerá en gran medida de la calidad de la alianza universitaria, la propuesta metodológica y la demostración de impacto en CTeI, elementos que son manejables con una buena formulación."
+      },
+      "complejidad_documental": {
+        "score": 65,
+        "justification": "La convocatoria requiere la conformación obligatoria de una alianza universidad-empresa, lo que implica la gestión de acuerdos firmados. Además, exige la presentación de un presupuesto detallado, cronograma, hoja de vida del equipo (CvLAC) y cumplir con indicadores mínimos de CTeI (artículo científico, apropiación social, registro de innovación), lo que añade una capa de complejidad considerable."
+      },
+      "tiempo_disponible": {
+        "score": 75,
+        "justification": "La fecha límite es el 10 de octubre de 2026. A partir del 24 de junio de 2026, hay aproximadamente 3 meses y medio, lo cual es un tiempo razonable para construir una propuesta sólida y gestionar las alianzas, aunque requiere trabajo intensivo."
+      },
+      "impacto_estrategico": {
+        "score": 95,
+        "justification": "Participar en esta convocatoria nos permitiría validar y escalar tecnologías de Moollish y Sat2Farm en el mercado colombiano, establecer una relación estratégica con una universidad colombiana, generar conocimiento científico y registrar innovaciones, lo cual tiene un alto impacto en el posicionamiento y la credibilidad de nuestra tecnología."
+      },
+      "riesgo_ejecucion": {
+        "score": 70,
+        "justification": "El principal riesgo radica en la gestión de la alianza con la universidad y la consecución de los indicadores de CTeI (publicación científica, registro de innovación), que requieren un enfoque metodológico académico y no solo de desarrollo. El riesgo técnico de la implementación de la tecnología es bajo para Moollish y Sat2Farm."
+      }
+    },
+    "institutional_fit": {
+      "moollish": 95,
+      "sat2farm": 90,
+      "foundation_nova": 30,
+      "alliance": 100
+    },
+    "effort": "alto",
+    "risk": "medio",
+    "main_gap": "Conformar y consolidar la alianza estratégica con una universidad colombiana acreditada como ejecutora principal y con capacidad metodológica para I+D+i en el sector agropecuario, que cumpla con los requisitos de grupos de investigación reconocidos por MINCIENCIAS.",
+    "partners_needed": [
+      {
+        "gap": "Ejecución principal y rol metodológico de I+D+i",
+        "ally_type": "Universidad o Institución de Educación Superior acreditada (Colombia)",
+        "suggested_role": "Ejecutor principal, líder metodológico, responsable de publicaciones y apropiación social del conocimiento.",
+        "priority": "alto",
+        "reason": "Requisito obligatorio de la convocatoria para ser elegible. La universidad debe tener grupos de investigación clasificados por MINCIENCIAS."
+      }
+    ],
+    "risks": [
+      {
+        "type": "ejecucion",
+        "description": "Dificultad en la coordinación y gestión de resultados con el aliado universitario, especialmente en la generación de productos de CTeI (artículo, registro de innovación).",
+        "severity": "medio"
+      },
+      {
+        "type": "financiero",
+        "description": "No cumplir con el aporte de contrapartida del 30% por parte de la empresa, ya sea en efectivo o en especie valorada.",
+        "severity": "bajo"
+      },
+      {
+        "type": "tiempo",
+        "description": "Tiempo para formular una propuesta robusta y establecer la alianza es limitado para una convocatoria de esta índole.",
+        "severity": "medio"
+      }
+    ],
+    "next_actions": [
+      {
+        "action": "Identificar potenciales universidades colombianas con líneas de investigación en AgTech, agricultura de precisión o IA aplicada al agro (y grupos de investigación reconocidos por MINCIENCIAS) para posibles alianzas.",
+        "responsible": "Head of Strategic Partnerships (HSP)",
+        "due_date": "2026-06-27",
+        "dependency": null
+      },
+      {
+        "action": "Revisar el estado actual de nuestro NIT y el registro en el SICYt de MINCIENCIAS para asegurar la elegibilidad como empresa.",
+        "responsible": "Legal/Finance",
+        "due_date": "2026-06-26",
+        "dependency": null
+      },
+      {
+        "action": "Preparar un borrador de idea de proyecto AgTech/IA para el agro que se alinee con las fortalezas de Moollish/Sat2Farm y que pueda presentarse a posibles aliados universitarios.",
+        "responsible": "CTO/PMO",
+        "due_date": "2026-06-28",
+        "dependency": null
+      },
+      {
+        "action": "Contactar a MINCIENCIAS para confirmar detalles sobre el requisito de 'grupos de investigación reconocidos y clasificados' y su clasificación actual.",
+        "responsible": "HSP",
+        "due_date": "2026-06-26",
+        "dependency": null
+      }
+    ],
+    "evidence": [
+      {
+        "claim": "La convocatoria es de MINCIENCIAS.",
+        "quote": "MINCIENCIAS — Términos de Referencia Convocatoria 966",
+        "field": "source.name"
+      },
+      {
+        "claim": "La fecha límite es el 10 de octubre de 2026 a las 23:59 hora Colombia (UTC-5).",
+        "quote": "Fecha límite de envío de propuestas al sistema MINCIENCIAS (SICYt): 10 de octubre de 2026 a las 23:59 hora Colombia (UTC-5).",
+        "field": "deadline.date"
+      },
+      {
+        "claim": "El monto máximo de cofinanciación es COP 1.200.000.000.",
+        "quote": "Monto máximo de cofinanciación MINCIENCIAS: COP 1.200.000.000 (mil doscientos millones de pesos colombianos) por proyecto.",
+        "field": "funding_amount.value"
+      },
+      {
+        "claim": "Es para proyectos de I+D+i en el sector agropecuario, con énfasis en tecnologías digitales, automatización, agricultura de precisión e inteligencia artificial.",
+        "quote": "proyectos de investigación aplicada, desarrollo tecnológico e innovación (I+D+i) en el sector agropecuario, con énfasis en tecnologías digitales, automatización, agricultura de precisión e inteligencia artificial para la cadena productiva.",
+        "field": "classification.themes"
+      },
+      {
+        "claim": "Exige la conformación obligatoria de alianzas universidad-empresa.",
+        "quote": "Esta convocatoria exige la conformación obligatoria de alianzas universidad-empresa: cada propuesta debe articular al menos una empresa del sector privado (...) y al menos una universidad o institución de educación superior acreditada como ejecutora principal con rol metodológico.",
+        "field": "eligibility.restrictions"
+      },
+      {
+        "claim": "Las empresas privadas con NIT vigente son elegibles.",
+        "quote": "Las entidades elegibles son: (...) empresas privadas con NIT vigente.",
+        "field": "eligibility.eligible_entities"
+      },
+      {
+        "claim": "Se requiere un aporte mínimo de contrapartida del 30% por parte de la empresa aliada.",
+        "quote": "Las propuestas deben presentar presupuesto detallado con aporte mínimo de contrapartida del 30% por parte de la empresa aliada, en recursos en efectivo o en especie valorados.",
+        "field": "eligibility.restrictions"
+      },
+      {
+        "claim": "El proyecto debe ejecutarse en el territorio colombiano.",
+        "quote": "El proyecto debe ejecutarse en el territorio colombiano.",
+        "field": "eligibility.countries"
+      },
+      {
+        "claim": "Los documentos requeridos incluyen formulario, aval institucional, acuerdos de alianza, CvLAC, presupuesto y cronograma.",
+        "quote": "Requisitos documentales: formulario de propuesta, carta de aval institucional, acuerdos de alianza firmados, hoja de vida del equipo (CvLAC), presupuesto y cronograma.",
+        "field": "eligibility.required_documents"
+      }
+    ],
+    "missing_data": [],
+    "draft_outputs": {
+      "executive_summary": "La Convocatoria 966 de MINCIENCIAS busca cofinanciar proyectos de I+D+i en AgTech y agricultura de precisión con IA en Colombia. Representa una oportunidad clave para Moollish y Sat2Farm de validar y escalar sus soluciones en el ámbito nacional a través de una alianza estratégica universidad-empresa.",
+      "narrative_angle": "Nuestra narrativa se centrará en posicionar a Moollish y Sat2Farm como la empresa tecnológica líder que, en alianza con una universidad (socio estratégico principal), aportará soluciones innovadoras y de impacto para la transformación digital del sector agropecuario colombiano, cumpliendo con los estándares de CTeI y generando apropiación social del conocimiento."
+    },
+    "opportunity_id": "fbeba610-df38-4a58-adcd-3bf256ac54b3",
+    "overall_score": 82,
+    "semaforo": "verde_condicionado",
+    "recommendation": "apply_with_partner",
+    "analysis_meta": {
+      "model": "google/gemini-2.5-flash",
+      "weights_version": "v1",
+      "analyzed_at": "2026-06-24T01:34:44.501Z"
+    }
+  },
+  "secop-car-ambiental": {
+    "source": {
+      "name": "CORPORACIÓN AUTÓNOMA REGIONAL DE CUNDINAMARCA (CAR)",
+      "url": "https://www.secop.gov.co",
+      "channel": "manual",
+      "confidence_level": "alta"
+    },
+    "classification": {
+      "category": "contratacion_publica",
+      "subcategory": "licitacion_publica",
+      "instrument": "servicio_monitoreo_ambiental",
+      "themes": [
+        "monitoreo_ambiental",
+        "satelital",
+        "ecosistemas_estrategicos",
+        "IoT",
+        "deforestacion",
+        "incendios",
+        "degradacion_ambiental",
+        "sistemas_de_informacion_geografica_SIG"
+      ],
+      "geography": [
+        "Cundinamarca",
+        "Colombia"
+      ]
+    },
+    "deadline": {
+      "date": "2026-11-05",
+      "verified": true,
+      "days_remaining": 134
+    },
+    "funding_amount": {
+      "value": 1500000000,
+      "currency": "COP",
+      "confirmed": true,
+      "estimated_cop": 1500000000,
+      "estimated_usd": null,
+      "range_min": null,
+      "range_max": null
+    },
+    "eligibility": {
+      "eligible_entities": [
+        "Persona jurídica legalmente constituida en Colombia"
+      ],
+      "countries": [
+        "Colombia"
+      ],
+      "restrictions": [
+        "Objeto social relacionado con tecnologías ambientales, satelitales o sistemas de información geográfica",
+        "Capacidad financiera mínima: índice de liquidez ≥ 1,5 e índice de endeudamiento ≤ 60% certificada en estados financieros 2025",
+        "Experiencia habilitante: al menos dos (2) contratos ejecutados en los últimos cinco (5) años por objeto igual o similar (monitoreo ambiental, teledetección satelital, o sistemas de información geográfica para entidades públicas), con valor acumulado no inferior a COP 800.000.000",
+        "Certificación de sistema de gestión de calidad ISO 9001 vigente o equivalente"
+      ],
+      "required_documents": [
+        "Estados financieros del año 2025",
+        "Certificación de sistema de gestión de calidad ISO 9001 vigente o equivalente"
+      ],
+      "gaps": []
+    },
+    "recommended_vehicle": "moollish_sat2farm",
+    "vehicle_rationale": "La convocatoria requiere una solución de monitoreo ambiental que combine imágenes satelitales, sensores IoT y capacidad de integración, lo cual es el core de la propuesta de valor de Sat2Farm. Moollish como entidad jurídica y desarrollador de tecnología AgTech complementa la capacidad técnica y operativa para la implementación general del proyecto y gestión contractual. La aplicación conjunta de ambas capacidades (Moollish lidera y Sat2Farm aporta la especialización técnica) sería lo más adecuado.",
+    "criteria_scores": {
+      "alineacion_estrategica": {
+        "score": 95,
+        "justification": "La convocatoria se alinea directamente con la capacidad de Sat2Farm en monitoreo satelital y detección de cambios ambientales, y con Moollish en el desarrollo e implementación de soluciones tecnológicas e IoT. El objeto de monitoreo de ecosistemas estratégicos (humedales, páramos, zonas de recarga hídrica) es vital para nuestra visión de sostenibilidad."
+      },
+      "elegibilidad": {
+        "score": 80,
+        "justification": "Sat2Farm y Moollish son personas jurídicas colombianas con un objeto social pertinente. La capacidad financiera y la experiencia habilitante son aspectos críticos que deben verificarse internamente, pero son alcanzables. La certificación ISO 9001 es un requisito habilitante que puede requerir una evaluación inmediata de nuestra situación actual."
+      },
+      "monto_retorno": {
+        "score": 85,
+        "justification": "El presupuesto de COP 1.500.000.000 es significativo y justifica el esfuerzo de aplicación, ofreciendo un buen retorno si se obtiene el contrato. Representa una oportunidad importante para ingresos y posicionamiento en el sector público de monitoreo ambiental."
+      },
+      "probabilidad_exito": {
+        "score": 75,
+        "justification": "Moollish y Sat2Farm tienen experiencia y capacidades técnicas sólidas en teledetección satelital, IoT y plataformas de información geográfica. El diferencial radica en nuestra capacidad de combinar estas tecnologías de forma innovadora y la solidez de nuestros datos. La experiencia previa con entidades públicas es clave y deberá ser validada."
+      },
+      "complejidad_documental": {
+        "score": 70,
+        "justification": "Se trata de una Licitación Pública en SECOP II, lo que implica un proceso documental estandarizado pero riguroso. Los requisitos incluyen estados financieros de 2025, experiencia habilitante y certificación ISO 9001, lo cual añade algo de complejidad pero es manejable si la documentación está en orden."
+      },
+      "tiempo_disponible": {
+        "score": 90,
+        "justification": "La fecha límite para presentación de ofertas es el 5 de noviembre de 2026, lo que deja un amplio margen de tiempo (más de 4 meses) para preparar una propuesta robusta. El pliego definitivo se conocerá el 15 de septiembre de 2026, dando tiempo para ajustar la propuesta después de su publicación."
+      },
+      "impacto_estrategico": {
+        "score": 90,
+        "justification": "Ganar este contrato con la CAR Cundinamarca sería un hito estratégico para Sat2Farm en su posicionamiento como líder en monitoreo ambiental satelital en Colombia. Abre el mercado de corporaciones autónomas regionales y valida nuestra tecnología para la gestión de recursos naturales, lo cual puede replicarse a nivel nacional."
+      },
+      "riesgo_ejecucion": {
+        "score": 80,
+        "justification": "El riesgo de ejecución es moderado/bajo, dado que las capacidades tecnológicas requeridas (imágenes satelitales, IoT, SIG, alertas tempranas) están dentro de la experticia de Sat2Farm y Moollish. Los principales riesgos estarían en la integración con SIAC, IDEAM y MADS, pero son desafíos técnicos abordables con experiencia en interoperabilidad."
+      }
+    },
+    "institutional_fit": {
+      "moollish": 85,
+      "sat2farm": 95,
+      "foundation_nova": 10,
+      "alliance": 90
+    },
+    "effort": "medio",
+    "risk": "medio",
+    "main_gap": "Asegurar que el vehículo principal o en alianza cumple cabalmente con la capacidad financiera y que poseemos la certificación ISO 9001 vigente y la experiencia contractual acumulada de COP 800 millones en los últimos 5 años, específicamente en monitoreo ambiental/teledetección para entidades públicas.",
+    "partners_needed": [],
+    "risks": [
+      {
+        "type": "financiero",
+        "description": "No cumplir con los índices de liquidez y endeudamiento solicitados basados en los estados financieros de 2025.",
+        "severity": "medio"
+      },
+      {
+        "type": "legal",
+        "description": "Falta de la certificación ISO 9001 vigente o equivalente al momento de la aplicación.",
+        "severity": "medio"
+      },
+      {
+        "type": "tecnico",
+        "description": "Dificultades en la integración de la plataforma de monitoreo con SIAC, IDEAM y MADS, si la interoperabilidad es más compleja de lo anticipado.",
+        "severity": "bajo"
+      },
+      {
+        "type": "ejecucion",
+        "description": "No poder demostrar la experiencia habilitante requerida (2 contratos por más de COP 800M) ante entidades públicas.",
+        "severity": "medio"
+      }
+    ],
+    "next_actions": [
+      {
+        "action": "Revisar y consolidar los estados financieros de Moollish y Sat2Farm del año 2025 para verificar el cumplimiento de los índices de liquidez y endeudamiento.",
+        "responsible": "CFO",
+        "due_date": "2026-06-27",
+        "dependency": null
+      },
+      {
+        "action": "Verificar la existencia y vigencia de la certificación ISO 9001 de Moollish o Sat2Farm y evaluar la necesidad de obtenerla o renovarla si aplica.",
+        "responsible": "COO / Responsable Calidad",
+        "due_date": "2026-06-28",
+        "dependency": null
+      },
+      {
+        "action": "Identificar y documentar los contratos ejecutados por Moollish y Sat2Farm en los últimos cinco (5) años que cumplan con la experiencia habilitante en monitoreo ambiental/teledetección para entidades públicas.",
+        "responsible": "Gerencia Proyectos / Legal",
+        "due_date": "2026-06-29",
+        "dependency": null
+      },
+      {
+        "action": "Preparar un borrador de plan de acción para acceder y revisar el pliego de condiciones en SECOP II una vez esté disponible (15 sept 2026).",
+        "responsible": "Líder Licitación",
+        "due_date": "2026-06-26",
+        "dependency": null
+      }
+    ],
+    "evidence": [
+      {
+        "claim": "La convocatoria es de la Corporación Autónoma Regional de Cundinamarca (CAR).",
+        "quote": "CORPORACIÓN AUTÓNOMA REGIONAL DE CUNDINAMARCA (CAR)",
+        "field": "source.name"
+      },
+      {
+        "claim": "El objeto es la prestación de servicios para monitoreo ambiental satelital y terrestre de ecosistemas estratégicos.",
+        "quote": "Objeto: Prestación de servicios para el monitoreo ambiental satelital y terrestre de ecosistemas estratégicos en la jurisdicción CAR",
+        "field": "classification.instrument"
+      },
+      {
+        "claim": "La categoría es contratación pública.",
+        "quote": "PROCESO DE CONTRATACIÓN PÚBLICA — SECOP II",
+        "field": "classification.category"
+      },
+      {
+        "claim": "La fecha límite para presentar ofertas es el 5 de noviembre de 2026 a las 3:00 p.m.",
+        "quote": "Fecha límite para presentación de ofertas: 5 de noviembre de 2026 a las 3:00 p.m. (hora Colombia).",
+        "field": "deadline.date"
+      },
+      {
+        "claim": "El presupuesto oficial estimado es COP 1.500.000.000.",
+        "quote": "Presupuesto oficial estimado: COP 1.500.000.000 (mil quinientos millones de pesos colombianos), IVA incluido.",
+        "field": "funding_amount.value"
+      },
+      {
+        "claim": "Se requiere que el oferente sea una persona jurídica legalmente constituida en Colombia con objeto social relacionado.",
+        "quote": "(1) Persona jurídica legalmente constituida en Colombia con objeto social relacionado con tecnologías ambientales, satelitales o sistemas de información geográfica;",
+        "field": "eligibility.eligible_entities"
+      },
+      {
+        "claim": "Se exige capacidad financiera mínima con índices de liquidez y endeudamiento específicos.",
+        "quote": "(2) Capacidad financiera mínima: índice de liquidez ≥ 1,5 e índice de endeudamiento ≤ 60%, certificados en estados financieros del año 2025;",
+        "field": "eligibility.restrictions"
+      },
+      {
+        "claim": "Se necesita experiencia habilitante de al menos dos (2) contratos similares por COP 800.000.000 acumulado.",
+        "quote": "(3) Experiencia habilitante: al menos dos (2) contratos ejecutados en los últimos cinco (5) años por objeto igual o similar (monitoreo ambiental, teledetección satelital, o sistemas de información geográfica para entidades públicas), con valor acumulado no inferior a COP 800.000.000 (ochocientos millones de pesos);",
+        "field": "eligibility.restrictions"
+      },
+      {
+        "claim": "Se pide certificación ISO 9001.",
+        "quote": "(4) Certificación de sistema de gestión de calidad ISO 9001 vigente o equivalente.",
+        "field": "eligibility.restrictions"
+      },
+      {
+        "claim": "La modalidad de selección es Licitación Pública.",
+        "quote": "Modalidad de selección: Licitación Pública.",
+        "field": "classification.subcategory"
+      },
+      {
+        "claim": "El plazo de ejecución es de 12 meses prorrogables.",
+        "quote": "Plazo de ejecución del contrato: 12 meses prorrogables.",
+        "field": "classification.instrument"
+      }
+    ],
+    "missing_data": [],
+    "draft_outputs": {
+      "executive_summary": "Esta licitación de la CAR Cundinamarca busca un proveedor para monitoreo ambiental satelital y terrestre de ecosistemas estratégicos, requiriendo una plataforma tecnológica que combine imágenes satelitales, sensores IoT y capacidad de integración. Representa una excelente oportunidad para que Sat2Farm y Moollish posicionen su tecnología de punta en el sector público ambiental, con un presupuesto significativo y un plazo de ejecución amplio.",
+      "narrative_angle": "Nuestra narrativa se centrará en la capacidad consolidada de Moollish y Sat2Farm para ofrecer una solución integral, robusta y escalable de monitoreo ambiental, que va más allá de la teledetección básica. Destacaremos la combinación de la precisión satelital de Sat2Farm con la tecnología IoT y de plataforma de Moollish para una vigilancia en tiempo real y alertas tempranas, enfatizando nuestra experiencia en integración de sistemas y la contribución directa a la gestión sostenible de los recursos naturales de Cundinamarca."
+    },
+    "opportunity_id": "1acf3979-c6a4-47d4-ace3-0ef187f82cc0",
+    "overall_score": 84,
+    "semaforo": "verde_condicionado",
+    "recommendation": "apply_with_partner",
+    "analysis_meta": {
+      "model": "google/gemini-2.5-flash",
+      "weights_version": "v1",
+      "analyzed_at": "2026-06-24T01:35:01.787Z"
+    }
+  }
+}

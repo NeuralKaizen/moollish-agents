@@ -1,4 +1,4 @@
-import 'dotenv/config'
+import '../load-env'
 import { generateText, Output } from 'ai'
 import { createOpenRouter } from '@openrouter/ai-sdk-provider'
 import { LlmAnalysisSchema, type LlmAnalysis } from './schema'

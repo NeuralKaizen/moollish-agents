@@ -10,6 +10,9 @@ import { AnalysisView } from '@/components/analysis/analysis-view'
 import { IngestionSummaryView } from '@/components/analysis/ingestion-summary'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
+import { DEMO_PRESETS } from '@/lib/demo/presets'
+import { demoStore } from '@/lib/demo/use-store'
+import Link from 'next/link'
 
 type Status = 'idle' | 'loading' | 'done' | 'error'
 
@@ -42,6 +45,7 @@ export default function Home() {
     try {
       const result = await analyzeClient(input, setProgress)
       setAnalysis(result.analysis)
+      demoStore.add(result.analysis)
       setIngestion(result.ingestion)
       setStatus('done')
     } catch (e) {
@@ -69,6 +73,11 @@ export default function Home() {
             collapsed={false}
             loading={false}
             canAnalyze={canAnalyze}
+            presets={DEMO_PRESETS.map(({ id, label }) => ({ id, label }))}
+            onPickPreset={(id) => {
+              const p = DEMO_PRESETS.find((x) => x.id === id)
+              if (p) { setFile(null); setText(p.text) }
+            }}
           />
         </div>
       </main>
@@ -92,6 +101,11 @@ export default function Home() {
         progress={progress}
         canAnalyze={canAnalyze}
         sourceName={analysis?.source.name}
+        presets={DEMO_PRESETS.map(({ id, label }) => ({ id, label }))}
+        onPickPreset={(id) => {
+          const p = DEMO_PRESETS.find((x) => x.id === id)
+          if (p) { setFile(null); setText(p.text) }
+        }}
       />
 
       {status === 'loading' && (
@@ -109,6 +123,11 @@ export default function Home() {
         </div>
       )}
 
+      {status === 'done' && analysis && (
+        <Link href={`/oportunidad/${analysis.opportunity_id}`} className="text-sm text-primary hover:underline">
+          Ver en el pipeline →
+        </Link>
+      )}
       {status === 'done' && ingestion && <IngestionSummaryView ingestion={ingestion} />}
       {status === 'done' && analysis && <AnalysisView analysis={analysis} />}
     </main>

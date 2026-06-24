@@ -1,8 +1,9 @@
 import { describe, it, expect } from 'vitest'
 import {
   SEMAFORO_META, RECOMMENDATION_LABEL, criterionWeightPct,
-  daysRemaining, formatCurrency,
+  daysRemaining, formatCurrency, PIPELINE_STATE_META,
 } from './format'
+import { PIPELINE_STATES } from '@/lib/demo/types'
 
 describe('format helpers', () => {
   it('tiene meta para cada semáforo', () => {
@@ -33,5 +34,14 @@ describe('format helpers', () => {
     expect(formatCurrency(null, 'USD')).toBe('—')
     expect(formatCurrency(1000000, 'USD')).toMatch(/1/)
     expect(formatCurrency(1000, null)).toMatch(/1/)
+  })
+})
+
+describe('PIPELINE_STATE_META', () => {
+  it('tiene etiqueta y color para los 10 estados', () => {
+    for (const s of PIPELINE_STATES) {
+      expect(PIPELINE_STATE_META[s].label).toBeTruthy()
+      expect(PIPELINE_STATE_META[s].color).toMatch(/^#/)
+    }
   })
 })

@@ -1,4 +1,5 @@
 import type { OpportunityAnalysis } from '@/lib/agent/schema'
+import type { PipelineState } from '@/lib/demo/types'
 import { DEFAULT_WEIGHTS } from '@/lib/agent/config'
 
 type Semaforo = OpportunityAnalysis['semaforo']
@@ -69,4 +70,17 @@ export function formatCurrency(value: number | null, currency: string | null): s
   } catch {
     return `${value.toLocaleString('es-CO')}${currency ? ` ${currency}` : ''}`
   }
+}
+
+export const PIPELINE_STATE_META: Record<PipelineState, { label: string; color: string }> = {
+  detectada: { label: 'Detectada', color: '#6b7280' },
+  analizada: { label: 'Analizada', color: '#2563eb' },
+  priorizada: { label: 'Priorizada', color: '#3c7d34' },
+  en_alianzas: { label: 'En alianzas', color: '#7c3aed' },
+  en_formulacion: { label: 'En formulación', color: '#c2611c' },
+  presentada: { label: 'Presentada', color: '#0891b2' },
+  en_evaluacion: { label: 'En evaluación', color: '#9a6b12' },
+  aprobada: { label: 'Aprobada', color: '#15803d' },
+  rechazada: { label: 'Rechazada', color: '#b23a2e' },
+  descartada: { label: 'Descartada', color: '#6b7280' },
 }

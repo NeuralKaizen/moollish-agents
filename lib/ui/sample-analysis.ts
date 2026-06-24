@@ -45,7 +45,7 @@ export const SAMPLE_ANALYSIS: OpportunityAnalysis = {
     monto_retorno: { score: 85, justification: 'USD 500k no reembolsables, retorno alto frente al esfuerzo.' },
     probabilidad_exito: { score: 70, justification: 'Competencia internacional fuerte; el componente satelital diferencia.' },
     complejidad_documental: { score: 75, justification: 'Concept note + cartas de socio; alcanzable en plazo.' },
-    tiempo_disponible: { score: 78, justification: 'Cierre 30/jun: margen ajustado pero suficiente.' },
+    tiempo_disponible: { score: 78, justification: 'Cierre 30/jul: margen ajustado pero suficiente.' },
     impacto_estrategico: { score: 88, justification: 'Abre puerta a red FAO y a futuras convocatorias multilaterales.' },
     riesgo_ejecucion: { score: 60, justification: 'Riesgo medio por coordinación con socio externo aún no asegurado.' },
   },
@@ -77,14 +77,14 @@ export const SAMPLE_ANALYSIS: OpportunityAnalysis = {
     { action: 'Redactar borrador de concept note preliminar.', responsible: 'Funding', due_date: '2026-06-20T00:00:00.000Z', dependency: null },
   ],
   evidence: [
-    { claim: 'Fecha de cierre 30 de junio de 2026', quote: '"…las propuestas se recibirán hasta el 30 de junio de 2026 a las 23:59 (GMT)."', field: 'deadline.date' },
+    { claim: 'Fecha de cierre 30 de julio de 2026', quote: '"…las propuestas se recibirán hasta el 30 de julio de 2026 a las 23:59 (GMT)."', field: 'deadline.date' },
     { claim: 'Monto de hasta USD 500.000', quote: '"…subvenciones de hasta USD 500,000 por proyecto…"', field: 'funding_amount.value' },
     { claim: 'Requiere socio en otro país elegible', quote: '"…cada propuesta debe incluir al menos un socio establecido en otro país elegible…"', field: 'eligibility.restrictions' },
   ],
   missing_data: ['Monto exacto del cofinanciamiento requerido al aplicante'],
   draft_outputs: {
     executive_summary:
-      'FAO AgrInno ofrece hasta USD 500k no reembolsables para innovación agroalimentaria en América Latina. Encaje alto con Moollish + Sat2Farm por el componente de agricultura de precisión y datos satelitales. La principal brecha es sumar un socio internacional elegible antes del cierre del 30 de junio.',
+      'FAO AgrInno ofrece hasta USD 500k no reembolsables para innovación agroalimentaria en América Latina. Encaje alto con Moollish + Sat2Farm por el componente de agricultura de precisión y datos satelitales. La principal brecha es sumar un socio internacional elegible antes del cierre del 30 de julio.',
     narrative_angle:
       'Posicionar a Moollish + Sat2Farm como una solución probada de agricultura de precisión con impacto medible en pequeños productores, lista para escalar regionalmente con respaldo de FAO.',
   },

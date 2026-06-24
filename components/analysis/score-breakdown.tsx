@@ -9,9 +9,12 @@ export function ScoreBreakdown({ analysis }: { analysis: OpportunityAnalysis }) 
 
   return (
     <Card className="p-5">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-        Score explicable — desglose ponderado
-      </p>
+      <div className="mb-3 flex items-baseline justify-between gap-2">
+        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+          Score explicable — desglose ponderado
+        </p>
+        <p className="text-[10px] text-muted-foreground/70">100 = más favorable</p>
+      </div>
       <div className="flex flex-col gap-3">
         {keys.map((key) => {
           const { score, justification } = analysis.criteria_scores[key]
