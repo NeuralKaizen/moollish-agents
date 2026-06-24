@@ -15,11 +15,14 @@ interface OpportunityInputProps {
   progress?: string | null
   canAnalyze: boolean
   sourceName?: string
+  presets?: { id: string; label: string }[]
+  onPickPreset?: (id: string) => void
 }
 
 export function OpportunityInput({
   value, onChange, onAnalyze, onPickFile, fileName,
   collapsed, loading, progress, canAnalyze, sourceName,
+  presets, onPickPreset,
 }: OpportunityInputProps) {
   const fileRef = useRef<HTMLInputElement>(null)
 
@@ -38,6 +41,21 @@ export function OpportunityInput({
 
   return (
     <div className="flex flex-col gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
+      {presets && presets.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          <span className="self-center text-xs text-muted-foreground">Casos reales:</span>
+          {presets.map((p) => (
+            <button
+              key={p.id}
+              type="button"
+              onClick={() => onPickPreset?.(p.id)}
+              className="rounded-full border border-border px-3 py-1 text-xs hover:bg-muted"
+            >
+              {p.label}
+            </button>
+          ))}
+        </div>
+      )}
       <Textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
