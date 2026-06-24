@@ -33,6 +33,7 @@ describe('createStore', () => {
     const storage = memStorage({ [DEMO_STORAGE_KEY]: '{no-json' })
     const store = createStore(seed, storage)
     expect(store.getSnapshot()).toHaveLength(1)
+    expect(storage.data[DEMO_STORAGE_KEY]).toContain(SAMPLE_ANALYSIS.opportunity_id)
   })
 
   it('add notifica a los suscriptores y persiste', () => {
@@ -59,5 +60,15 @@ describe('createStore', () => {
     expect(store.getSnapshot()).toHaveLength(1)
     store.add({ ...SAMPLE_ANALYSIS, opportunity_id: 'x' })
     expect(store.getSnapshot()).toHaveLength(2)
+  })
+
+  it('unsubscribe detiene las notificaciones', () => {
+    const store = createStore([], memStorage())
+    let calls = 0
+    const unsub = store.subscribe(() => { calls += 1 })
+    store.add(SAMPLE_ANALYSIS)
+    unsub()
+    store.add({ ...SAMPLE_ANALYSIS, opportunity_id: 'otra' })
+    expect(calls).toBe(1)
   })
 })

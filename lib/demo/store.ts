@@ -58,6 +58,6 @@ export function createStore(
     add(analysis) { commit(addOpportunity(state, analysis, now())) },
     setState(id, s, reason) { commit(setOpportunityState(state, id, s, reason)) },
     toggleTask(id, index) { commit(toggleOpportunityTask(state, id, index)) },
-    reset() { commit(seed) },
+    reset() { commit([...seed]) },
   }
 }
