@@ -12,7 +12,11 @@ for (const f of files) {
   const key = f.replace(/\.txt$/, '')
   const text = readFileSync(`${DIR}/${f}`, 'utf8')
   console.error(`Analizando ${key}…`)
-  out[key] = await analyzeOpportunity(text, { generate: generateWithOpenRouter })
+  try {
+    out[key] = await analyzeOpportunity(text, { generate: generateWithOpenRouter })
+  } catch (err) {
+    console.error(`  ✗ falló ${key}: ${err instanceof Error ? err.message : String(err)}`)
+  }
 }
 
 writeFileSync('lib/demo/analyses.generated.json', JSON.stringify(out, null, 2) + '\n')

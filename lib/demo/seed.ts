@@ -32,3 +32,7 @@ export const SEED_OPPORTUNITIES: DemoOpportunity[] = Object.entries(PLAN)
       decision_reason: plan.reason ?? null,
     }
   })
+
+if (SEED_OPPORTUNITIES.length !== Object.keys(PLAN).length) {
+  console.warn(`[demo/seed] esperaba ${Object.keys(PLAN).length} casos pero hay ${SEED_OPPORTUNITIES.length}; revisá lib/demo/analyses.generated.json`)
+}
