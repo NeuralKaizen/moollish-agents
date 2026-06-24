@@ -37,4 +37,7 @@ describe('buildSystemPrompt', () => {
     const p = buildSystemPrompt('2026-06-24')
     expect(p).toContain('2026-06-24')
   })
+  it('aclara que missing_data es solo para datos ausentes', () => {
+    expect(prompt.toLowerCase()).toContain('solo para datos ausentes')
+  })
 })

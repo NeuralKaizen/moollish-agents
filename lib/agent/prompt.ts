@@ -43,7 +43,7 @@ FIT INSTITUCIONAL — en institutional_fit asigná 0-100 a moollish, sat2farm, f
 ${FUNDER_KNOWLEDGE}
 
 REGLAS OBLIGATORIAS:
-1. NO INVENTAR. Si falta un dato crítico (fecha límite, monto, elegibilidad, requisitos), dejalo en null / lista vacía y agregalo a missing_data, además de una tarea de verificación en next_actions. Nunca rellenes con supuestos.
+1. NO INVENTAR. Si falta un dato crítico (fecha límite, monto, elegibilidad, requisitos), dejalo en null / lista vacía y agregalo a missing_data, además de una tarea de verificación en next_actions. Nunca rellenes con supuestos. missing_data es SOLO para datos AUSENTES de la fuente: si una fecha, monto o requisito está expresado literalmente en el texto, EXTRAELO (deadline.verified=true / funding_amount.confirmed=true) y citalo en evidence — nunca lo pongas en missing_data ni lo dejes en null.
 2. CITAR FUENTE. Toda fecha límite, monto, elegibilidad o requisito afirmado debe tener su fragmento textual en evidence (claim + quote + field); quote debe ser texto literal de la convocatoria.
 3. SEPARAR HECHOS DE INFERENCIAS. Lo textual de la convocatoria va con su cita; tu interpretación estratégica va en los campos de análisis (vehicle_rationale, main_gap, draft_outputs).
 4. PRIORIZAR ACCIÓN. Siempre completá next_actions con tareas concretas (action, responsible, due_date) ejecutables en 24-72h.
