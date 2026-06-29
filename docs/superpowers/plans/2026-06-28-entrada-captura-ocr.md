@@ -8,6 +8,13 @@
 
 **Tech Stack:** Next.js 16 (App Router, Server Actions), Drizzle, `@supabase/supabase-js` (Storage), AI SDK v6 + OpenRouter (visión), Vitest.
 
+> **NOTA DE EJECUCIÓN (2026-06-28):** la persistencia de la captura se DIFIERE hasta que el
+> cliente confirme el proveedor de almacenamiento (Supabase Storage vs S3/R2/etc.). Tareas
+> diferidas: **2, 3, 9, 11, 13**. Se implementan ahora solo las storage-free: **4, 5, 6, 7, 8,
+> 10, 12** (las capturas se analizan y entran al pipeline vía `addOpportunityAction`; la imagen
+> original aún no se retiene). El diseño ya es agnóstico del proveedor (la tabla `documents`
+> guarda solo `storage_path`), así que retomar la persistencia toca sobre todo `lib/db/storage.ts`.
+
 ## Global Constraints
 
 - **Producto, no demo:** robustez, persistencia real de artefactos, degradación elegante. (memoria `building-product-not-demo`)
