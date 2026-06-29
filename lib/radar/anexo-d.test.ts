@@ -11,7 +11,7 @@ describe('anexo-d prefilter', () => {
     expect(passesPrefilter('Compra de mobiliario de oficina')).toBe(false)
   })
   it('excluye aunque tenga keyword si hay término excluido dominante', () => {
-    expect(passesPrefilter('Construcción de obra civil de acueducto')).toBe(false)
+    expect(passesPrefilter('Agricultura en obra civil de riego')).toBe(false)
   })
   it('matchedKeywords devuelve las keywords presentes', () => {
     expect(matchedKeywords('riego y agricultura de precisión')).toEqual(expect.arrayContaining(['agricultura']))
