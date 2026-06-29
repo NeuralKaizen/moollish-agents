@@ -49,3 +49,14 @@ export const funders = pgTable('funders', {
 
 export type FunderRow = typeof funders.$inferSelect
 export type NewFunderRow = typeof funders.$inferInsert
+
+export const processedEmails = pgTable('processed_emails', {
+  messageId: text('message_id').primaryKey(),
+  processedAt: timestamp('processed_at', { withTimezone: true }).notNull().defaultNow(),
+  status: text('status').$type<'ok' | 'failed'>().notNull(),
+  error: text('error'),
+  opportunityId: text('opportunity_id'),
+})
+
+export type ProcessedEmailRow = typeof processedEmails.$inferSelect
+export type NewProcessedEmailRow = typeof processedEmails.$inferInsert
