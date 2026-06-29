@@ -1,9 +1,6 @@
 // components/dashboard/dashboard-view.tsx
-'use client'
-
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
-import { useOpportunities } from '@/lib/demo/use-store'
+import type { DemoOpportunity } from '@/lib/demo/types'
 import {
   newOpportunities, pipelineByState, topToApply, criticalRisks,
   requiredAllies, potentialResources, actionsToday,
@@ -11,18 +8,14 @@ import {
 import { PIPELINE_STATE_META, formatCurrency } from '@/lib/ui/format'
 import { WidgetCard } from './widget-card'
 
-export function DashboardView() {
-  const list = useOpportunities()
-  const [now, setNow] = useState<number | null>(null)
-  useEffect(() => { setNow(Date.now()) }, [])
-
-  const nuevas = now == null ? [] : newOpportunities(list, now, 72)
+export function DashboardView({ list, now }: { list: DemoOpportunity[]; now: number }) {
+  const nuevas = newOpportunities(list, now, 72)
   const buckets = pipelineByState(list)
   const top = topToApply(list, 5)
   const riesgos = criticalRisks(list)
   const aliados = requiredAllies(list)
   const recursos = potentialResources(list)
-  const acciones = now == null ? [] : actionsToday(list, now)
+  const acciones = actionsToday(list, now)
 
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
