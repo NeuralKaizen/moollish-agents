@@ -1,0 +1,25 @@
+import type { NewFunderRow } from './schema'
+
+export const FUNDER_SEED: NewFunderRow[] = [
+  { id: 'fao', name: 'FAO', aliases: ['FAO', 'Food and Agriculture Organization', 'Organización de las Naciones Unidas para la Alimentación'],
+    themes: 'Seguridad alimentaria, agricultura, sistemas agroalimentarios, resiliencia, asociaciones rurales.',
+    evaluationCriteria: 'Narrativas de productividad, hambre cero, sostenibilidad y escalabilidad rural.' },
+  { id: 'fontagro', name: 'FONTAGRO', aliases: ['FONTAGRO'],
+    themes: 'Innovación agropecuaria, investigación aplicada, alianzas regionales, escalamiento.',
+    eligibleEntity: 'Suele exigir país socio y centro de investigación.' },
+  { id: 'div-fund', name: 'DIV Fund', aliases: ['DIV Fund', 'Development Innovation Ventures', 'DIV'],
+    themes: 'Evidencia, costo-efectividad, impacto medible, potencial de escala.',
+    requiredDocuments: 'Pide teoría de cambio robusta y medición.' },
+  { id: 'minciencias', name: 'Minciencias', aliases: ['Minciencias', 'Ministerio de Ciencia'],
+    themes: 'CTeI, apropiación social, innovación, capacidades regionales.',
+    evaluationCriteria: 'Alianzas universidad-empresa-estado y componentes tecnológicos demostrables.' },
+  { id: 'adr-minagricultura', name: 'ADR / MinAgricultura', aliases: ['ADR', 'MinAgricultura', 'Ministerio de Agricultura', 'Agencia de Desarrollo Rural'],
+    themes: 'Productividad, asociatividad, comercialización, extensión agropecuaria.',
+    evaluationCriteria: 'Proyectos con asociaciones y asistencia técnica digital.' },
+  { id: 'car', name: 'CAR / entidades ambientales', aliases: ['CAR', 'Corporación Autónoma Regional'],
+    themes: 'Restauración, biodiversidad, monitoreo, alertas, ordenamiento ambiental.',
+    evaluationCriteria: 'Encaja con la capa satelital de Sat2Farm.' },
+  { id: 'ue-horizon', name: 'UE / Horizon / Innovate UK', aliases: ['UE', 'Unión Europea', 'Horizon', 'Innovate UK', 'Horizon Europe'],
+    themes: 'Consorcios, innovación, impacto, escalabilidad, partners internacionales.',
+    eligibleEntity: 'Suele requerir socio coordinador y rol de piloto.' },
+]

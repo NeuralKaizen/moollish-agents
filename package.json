@@ -15,7 +15,8 @@
     "seed": "tsx scripts/seed.ts",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
-    "seed:db": "tsx scripts/seed-db.ts"
+    "seed:db": "tsx scripts/seed-db.ts",
+    "seed:funders": "tsx scripts/seed-funders.ts"
   },
   "dependencies": {
     "@openrouter/ai-sdk-provider": "^2.9.1",
