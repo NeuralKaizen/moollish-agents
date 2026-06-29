@@ -1,13 +1,10 @@
 // components/pipeline/pipeline-board.tsx
-'use client'
-
-import { useOpportunities } from '@/lib/demo/use-store'
+import type { DemoOpportunity } from '@/lib/demo/types'
 import { PIPELINE_STATES } from '@/lib/demo/types'
 import { PIPELINE_STATE_META } from '@/lib/ui/format'
 import { OpportunityRow } from './opportunity-row'
 
-export function PipelineBoard() {
-  const list = useOpportunities()
+export function PipelineBoard({ list }: { list: DemoOpportunity[] }) {
   return (
     <div className="flex flex-col gap-6">
       {PIPELINE_STATES.map((state) => {
