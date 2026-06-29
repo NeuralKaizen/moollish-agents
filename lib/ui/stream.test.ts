@@ -42,3 +42,19 @@ describe('readAnalyzeStream', () => {
     ).rejects.toThrow(/no incluyó un análisis/i)
   })
 })
+
+function streamOfLines(lines: string[]): ReadableStream<Uint8Array> {
+  const enc = new TextEncoder()
+  return new ReadableStream({ start(c) { for (const l of lines) c.enqueue(enc.encode(l + '\n')); c.close() } })
+}
+
+describe('readAnalyzeStream (capture)', () => {
+  it('propaga el campo capture del evento result', async () => {
+    const analysis = { opportunity_id: 'x', source: { name: 'X' } }
+    const result = await readAnalyzeStream(streamOfLines([
+      JSON.stringify({ type: 'result', analysis, ingestion: { sources: [], truncated: false, notes: [] }, capture: { ocr_text: 'ocr', source_guess: 'IG @x' } }),
+    ]))
+    expect(result.capture?.ocr_text).toBe('ocr')
+    expect(result.capture?.source_guess).toBe('IG @x')
+  })
+})

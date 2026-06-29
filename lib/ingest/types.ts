@@ -29,5 +29,5 @@ export interface Reader {
 
 export type ProgressEvent =
   | { type: 'progress'; step: string }
-  | { type: 'result'; analysis: OpportunityAnalysis; ingestion: IngestionSummary }
+  | { type: 'result'; analysis: OpportunityAnalysis; ingestion: IngestionSummary; capture?: { ocr_text: string; source_guess: string | null } }
   | { type: 'error'; error: string }
