@@ -1,5 +1,7 @@
 import { analyzeOpportunity } from '@/lib/agent/analyze'
 import { generateWithOpenRouter } from '@/lib/agent/llm'
+import { listFunders, rowToProfile } from '@/lib/db/funders'
+import { matchFunder, formatFunderBlock } from '@/lib/agent/funder-match'
 import { createFirecrawlReader } from '@/lib/ingest/firecrawl'
 import { extractPdfText } from '@/lib/ingest/pdf'
 import { ingestFromUrl, ingestFromText, ingestFromPdf } from '@/lib/ingest/ingest'
@@ -58,7 +60,14 @@ export async function POST(req: Request) {
       try {
         const { ingest, capture } = await runIngest(req, (step) => send({ type: 'progress', step }))
         send({ type: 'progress', step: 'Analizando…' })
-        const analysis = await analyzeOpportunity(ingest.text, { generate: generateWithOpenRouter })
+        let funderBlock = formatFunderBlock(null)
+        try {
+          const rows = await listFunders()
+          funderBlock = formatFunderBlock(matchFunder(ingest.text, rows.map(rowToProfile)))
+        } catch {
+          // Si la tabla de financiadores no está disponible, seguimos con el bloque genérico.
+        }
+        const analysis = await analyzeOpportunity(ingest.text, { generate: generateWithOpenRouter }, { funderBlock })
         send({
           type: 'result',
           analysis,
