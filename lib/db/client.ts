@@ -21,7 +21,8 @@ function getDb(): Database {
 }
 
 export const db = new Proxy({} as Database, {
-  get(_target, prop) {
+  get(target, prop) {
+    if (typeof prop === 'symbol') return Reflect.get(target, prop)
     const real = getDb()
     const value = real[prop as keyof Database]
     return typeof value === 'function' ? (value as (...a: unknown[]) => unknown).bind(real) : value
