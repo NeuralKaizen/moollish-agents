@@ -14,3 +14,17 @@ export const opportunities = pgTable('opportunities', {
 
 export type OpportunityRow = typeof opportunities.$inferSelect
 export type NewOpportunityRow = typeof opportunities.$inferInsert
+
+export const documents = pgTable('documents', {
+  id: text('id').primaryKey(),
+  opportunityId: text('opportunity_id')
+    .notNull()
+    .references(() => opportunities.id, { onDelete: 'cascade' }),
+  kind: text('kind').notNull(), // 'captura'
+  storagePath: text('storage_path').notNull(),
+  ocrText: text('ocr_text').notNull(),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+})
+
+export type DocumentRow = typeof documents.$inferSelect
+export type NewDocumentRow = typeof documents.$inferInsert

@@ -8,6 +8,13 @@
       "when": 1782701523543,
       "tag": "0000_fine_veda",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1782707290972,
+      "tag": "0001_chunky_metal_master",
+      "breakpoints": true
     }
   ]
 }
