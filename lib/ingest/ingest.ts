@@ -15,7 +15,7 @@ export interface IngestCaps {
   totalBudget?: number
 }
 
-function resolveCaps(caps: IngestCaps) {
+export function resolveCaps(caps: IngestCaps) {
   return {
     maxDocs: caps.maxDocs ?? INGEST_MAX_DOCS,
     maxCharsPerDoc: caps.maxCharsPerDoc ?? INGEST_MAX_CHARS_PER_DOC,
