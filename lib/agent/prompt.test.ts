@@ -14,9 +14,13 @@ describe('buildSystemPrompt', () => {
   it('menciona los 8 criterios ponderados', () => {
     for (const k of CRITERION_KEYS) expect(prompt).toContain(k)
   })
-  it('incluye conocimiento de financiadores', () => {
-    expect(prompt).toContain('FAO')
-    expect(prompt).toContain('FONTAGRO')
+  it('inyecta el bloque del financiador provisto', () => {
+    const p = buildSystemPrompt('2026-06-24', 'PERFIL DEL FINANCIADOR — FAO: prioridades X')
+    expect(p).toContain('PERFIL DEL FINANCIADOR — FAO')
+  })
+  it('siempre incluye los vehículos institucionales', () => {
+    expect(prompt).toContain('Sat2Farm')
+    expect(prompt).toContain('Foundation Nova')
   })
   it('aclara que NO debe calcular overall_score ni semáforo', () => {
     expect(prompt).toContain('overall_score')

@@ -1,4 +1,5 @@
-import { FUNDER_KNOWLEDGE } from './funders'
+import { INSTITUTIONAL_VEHICLES } from './funders'
+import { formatFunderBlock } from './funder-match'
 import { DEFAULT_WEIGHTS } from './config'
 import { CRITERION_KEYS } from './schema'
 
@@ -13,7 +14,10 @@ const WEIGHT_LABELS: Record<(typeof CRITERION_KEYS)[number], string> = {
   riesgo_ejecucion: 'Riesgo de ejecución (riesgos técnicos, reputacionales, financieros o legales)',
 }
 
-export function buildSystemPrompt(today: string = new Date().toISOString().slice(0, 10)): string {
+export function buildSystemPrompt(
+  today: string = new Date().toISOString().slice(0, 10),
+  funderBlock: string = formatFunderBlock(null),
+): string {
   const criteria = CRITERION_KEYS
     .map((k) => `- ${k} (peso ${Math.round(DEFAULT_WEIGHTS[k] * 100)}%): ${WEIGHT_LABELS[k]}`)
     .join('\n')
@@ -40,7 +44,9 @@ CLASIFICACIÓN (taxonomía) — asigná classification.category según la natura
 
 FIT INSTITUCIONAL — en institutional_fit asigná 0-100 a moollish, sat2farm, foundation_nova y alliance (qué tan conveniente es aplicar en alianza). Recomendá el vehículo líder en recommended_vehicle con su vehicle_rationale. effort y risk resumen el esfuerzo de formulación y el riesgo global en bajo/medio/alto.
 
-${FUNDER_KNOWLEDGE}
+${INSTITUTIONAL_VEHICLES}
+
+${funderBlock}
 
 REGLAS OBLIGATORIAS:
 1. NO INVENTAR. Si falta un dato crítico (fecha límite, monto, elegibilidad, requisitos), dejalo en null / lista vacía y agregalo a missing_data, además de una tarea de verificación en next_actions. Nunca rellenes con supuestos. missing_data es SOLO para datos AUSENTES de la fuente: si una fecha, monto o requisito está expresado literalmente en el texto, EXTRAELO (deadline.verified=true / funding_amount.confirmed=true) y citalo en evidence — nunca lo pongas en missing_data ni lo dejes en null.
