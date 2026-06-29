@@ -2,7 +2,7 @@ import type { AnalyzeInput } from './input-kind'
 import { readAnalyzeStream, type AnalyzeResult } from './stream'
 
 function buildRequest(input: AnalyzeInput): RequestInit {
-  if (input.kind === 'pdf') {
+  if (input.kind === 'pdf' || input.kind === 'image') {
     const form = new FormData()
     form.append('file', input.file)
     return { method: 'POST', body: form }

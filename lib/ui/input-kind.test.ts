@@ -28,3 +28,14 @@ describe('decideInput', () => {
     expect(decideInput('   ', null)).toBeNull()
   })
 })
+
+describe('decideInput (imagen)', () => {
+  it('un archivo image/* es kind image', () => {
+    const file = new File([new Uint8Array([1])], 'cap.png', { type: 'image/png' })
+    expect(decideInput('', file)).toEqual({ kind: 'image', file })
+  })
+  it('un archivo no-imagen sigue siendo pdf', () => {
+    const file = new File([new Uint8Array([1])], 'doc.pdf', { type: 'application/pdf' })
+    expect(decideInput('', file)).toEqual({ kind: 'pdf', file })
+  })
+})
