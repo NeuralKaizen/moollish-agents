@@ -22,8 +22,11 @@
   - Interno (lo generamos nosotros): `CRON_SECRET` para proteger el endpoint de cron.
   - Lib: `googleapis` (cliente oficial de Google).
 
+## Radar §7 — fuentes
+- **SECOP / Datos Abiertos (Colombia)** — EN DESARROLLO (primer slice del radar). API pública Socrata de `datos.gov.co` (dataset SECOP II). **Sin auth obligatoria.** Opcional: `DATOS_GOV_APP_TOKEN` (header `X-App-Token`) para mejores rate-limits. Reusa `CRON_SECRET` para el endpoint de cron.
+
 ## Más adelante (roadmap)
 - WhatsApp Business / Instagram (webhooks de Meta) — §16.
-- SECOP / Datos Abiertos (Colombia), EU Funding&Tenders, Grants.gov, UNGM, World Bank — §5/§16.
+- Otras fuentes del radar: EU Funding&Tenders, Grants.gov, UNGM, World Bank — §5/§16.
 - Notion/Airtable/HubSpot, Make/n8n, Drive/SharePoint — §16.
 - Proveedor de embeddings (para RAG/pgvector) — cuando haya corpus. OpenRouter no garantiza embeddings → probablemente OpenAI u otro.
