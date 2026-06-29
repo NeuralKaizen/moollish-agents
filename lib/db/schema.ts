@@ -60,3 +60,22 @@ export const processedEmails = pgTable('processed_emails', {
 
 export type ProcessedEmailRow = typeof processedEmails.$inferSelect
 export type NewProcessedEmailRow = typeof processedEmails.$inferInsert
+
+export const detectedOpportunities = pgTable('detected_opportunities', {
+  id: text('id').primaryKey(), // dedup key, ej. 'secop:<sourceRef>'
+  source: text('source').notNull(),
+  sourceRef: text('source_ref').notNull(),
+  title: text('title').notNull(),
+  funder: text('funder'),
+  amount: text('amount'),
+  currency: text('currency'),
+  deadline: text('deadline'),
+  url: text('url'),
+  themes: text('themes'),
+  status: text('status').$type<'detectada' | 'promovida' | 'descartada'>().notNull(),
+  opportunityId: text('opportunity_id'),
+  detectedAt: timestamp('detected_at', { withTimezone: true }).notNull().defaultNow(),
+})
+
+export type DetectedRow = typeof detectedOpportunities.$inferSelect
+export type NewDetectedRow = typeof detectedOpportunities.$inferInsert
