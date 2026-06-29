@@ -69,6 +69,7 @@ export default function Home() {
             onChange={setText}
             onAnalyze={run}
             onPickFile={setFile}
+            file={file}
             fileName={file?.name ?? null}
             collapsed={false}
             loading={false}
@@ -95,6 +96,7 @@ export default function Home() {
         onChange={setText}
         onAnalyze={run}
         onPickFile={setFile}
+        file={file}
         fileName={file?.name ?? null}
         collapsed={status === 'done'}
         loading={status === 'loading'}
