@@ -9,6 +9,7 @@ const LINKS = [
   { href: '/', label: 'Analizar' },
   { href: '/pipeline', label: 'Pipeline' },
   { href: '/dashboard', label: 'Dashboard' },
+  { href: '/financiadores', label: 'Financiadores' },
 ]
 
 export function NavHeader() {
