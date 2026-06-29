@@ -21,7 +21,7 @@ function stubLlm(overrides: Partial<LlmAnalysis> = {}): LlmAnalysis {
 }
 
 const fixedDeps = (llm: LlmAnalysis) => ({
-  generate: async () => llm,
+  generate: async (_t: string, _m: string, _fb: string) => llm,
   now: () => '2026-06-17T00:00:00.000Z',
   uuid: () => 'fixed-id',
 })
@@ -66,5 +66,19 @@ describe('analyzeOpportunity', () => {
   it('days_remaining cae a null si la fecha es inválida (no NaN)', async () => {
     const r = await analyzeOpportunity('texto', fixedDeps(stubLlm({ deadline: { date: 'no-es-una-fecha', verified: false } })))
     expect(r.deadline.days_remaining).toBeNull()
+  })
+
+  it('pasa el funderBlock a generate', async () => {
+    let received: string | undefined
+    const generate = async (_t: string, _m: string, fb: string) => { received = fb; return stubLlm() }
+    await analyzeOpportunity('texto', { generate }, { funderBlock: 'BLOQUE-X' })
+    expect(received).toBe('BLOQUE-X')
+  })
+
+  it('usa el bloque genérico si no se provee funderBlock', async () => {
+    let received: string | undefined
+    const generate = async (_t: string, _m: string, fb: string) => { received = fb; return stubLlm() }
+    await analyzeOpportunity('texto', { generate })
+    expect(received?.toLowerCase()).toContain('no se identificó')
   })
 })
