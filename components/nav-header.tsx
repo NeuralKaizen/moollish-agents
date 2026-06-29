@@ -1,8 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { demoStore } from '@/lib/demo/use-store'
+import { usePathname, useRouter } from 'next/navigation'
+import { useTransition } from 'react'
+import { resetDemoAction } from '@/lib/db/actions'
 
 const LINKS = [
   { href: '/', label: 'Analizar' },
@@ -12,6 +13,8 @@ const LINKS = [
 
 export function NavHeader() {
   const pathname = usePathname()
+  const router = useRouter()
+  const [, startReset] = useTransition()
   return (
     <header className="sticky top-0 z-10 border-b border-border bg-background/80 backdrop-blur">
       <nav className="mx-auto flex max-w-5xl items-center gap-4 px-4 py-3 text-sm">
@@ -32,7 +35,11 @@ export function NavHeader() {
         </div>
         <button
           type="button"
-          onClick={() => { if (confirm('¿Reiniciar la demo al estado inicial?')) demoStore.reset() }}
+          onClick={() => {
+            if (confirm('¿Reiniciar la demo al estado inicial?')) {
+              startReset(async () => { await resetDemoAction(); router.refresh() })
+            }
+          }}
           className="ml-auto rounded-md px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground"
         >
           Reiniciar demo
