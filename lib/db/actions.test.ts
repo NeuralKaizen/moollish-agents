@@ -53,6 +53,18 @@ describe.skipIf(!hasDb)('actions (integración)', () => {
     expect((await getOpportunity('caso-x'))?.tasks[0].done).toBe(false)
   })
 
+  it('addOpportunityAction al re-analizar preserva estado/tareas y actualiza el análisis', async () => {
+    await addOpportunityAction(analysis)
+    await setOpportunityStateAction('caso-x', 'priorizada')
+    await toggleOpportunityTaskAction('caso-x', 0)
+    const reanalyzed = { ...analysis, overall_score: 99 } as unknown as OpportunityAnalysis
+    await addOpportunityAction(reanalyzed)
+    const o = await getOpportunity('caso-x')
+    expect(o?.state).toBe('priorizada')          // estado preservado
+    expect(o?.tasks[0].done).toBe(true)           // progreso de tarea preservado
+    expect((o?.analysis as { overall_score?: number }).overall_score).toBe(99) // análisis actualizado
+  })
+
   it('resetDemoAction deja exactamente la semilla', async () => {
     await addOpportunityAction(analysis)
     await resetDemoAction()

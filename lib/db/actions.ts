@@ -18,8 +18,9 @@ function revalidateAll(): void {
 
 export async function addOpportunityAction(analysis: OpportunityAnalysis): Promise<void> {
   const row = opportunityToRow(makeOpportunity(analysis, new Date().toISOString()))
+  // Re-analizar conserva el progreso del pipeline (state/tasks/responsible); solo refresca el análisis.
   await db.insert(opportunities).values(row)
-    .onConflictDoUpdate({ target: opportunities.id, set: row })
+    .onConflictDoUpdate({ target: opportunities.id, set: { analysis: row.analysis } })
   revalidateAll()
 }
 
