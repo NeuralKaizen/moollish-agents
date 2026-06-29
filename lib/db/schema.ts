@@ -28,3 +28,24 @@ export const documents = pgTable('documents', {
 
 export type DocumentRow = typeof documents.$inferSelect
 export type NewDocumentRow = typeof documents.$inferInsert
+
+export const funders = pgTable('funders', {
+  id: text('id').primaryKey(), // slug, ej. 'fao'
+  name: text('name').notNull(),
+  aliases: jsonb('aliases').$type<string[]>().notNull(),
+  themes: text('themes'),
+  geographies: text('geographies'),
+  typicalAmounts: text('typical_amounts'),
+  frequency: text('frequency'),
+  eligibleEntity: text('eligible_entity'),
+  requiredDocuments: text('required_documents'),
+  winningExamples: text('winning_examples'),
+  contacts: text('contacts'),
+  language: text('language'),
+  evaluationCriteria: text('evaluation_criteria'),
+  lessonsLearned: text('lessons_learned'),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+})
+
+export type FunderRow = typeof funders.$inferSelect
+export type NewFunderRow = typeof funders.$inferInsert
