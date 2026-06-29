@@ -1,10 +1,14 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
+import { useTransition } from 'react'
 import type { DemoOpportunity } from '@/lib/demo/types'
-import { demoStore } from '@/lib/demo/use-store'
+import { toggleOpportunityTaskAction } from '@/lib/db/actions'
 import { Card } from '@/components/ui/card'
 
 export function TaskList({ o }: { o: DemoOpportunity }) {
+  const router = useRouter()
+  const [pending, start] = useTransition()
   return (
     <Card className="p-5">
       <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Tareas</p>
@@ -14,7 +18,8 @@ export function TaskList({ o }: { o: DemoOpportunity }) {
             <input
               type="checkbox"
               checked={t.done}
-              onChange={() => demoStore.toggleTask(o.analysis.opportunity_id, i)}
+              disabled={pending}
+              onChange={() => start(async () => { await toggleOpportunityTaskAction(o.analysis.opportunity_id, i); router.refresh() })}
               className="mt-1"
             />
             <span className={t.done ? 'text-muted-foreground line-through' : ''}>
