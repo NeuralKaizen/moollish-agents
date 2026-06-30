@@ -18,6 +18,7 @@ export default async function OpportunityDetailPage({ params }: { params: Promis
   const draftMap = new Map((await listDrafts(id)).map((d) => [d.kind, d]))
 
   let suggestions: GapSuggestion[] = []
+  let loadError = false
   try {
     const allies = await listAllies()
     suggestions = suggestAllies(
@@ -27,13 +28,14 @@ export default async function OpportunityDetailPage({ params }: { params: Promis
     )
   } catch (e) {
     console.error('[oportunidad] no se pudieron cargar aliados sugeridos:', e)
+    loadError = true
   }
 
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-4 px-4 py-8">
       <StateControl o={o} />
       <AnalysisView analysis={o.analysis} />
-      <AlliesSuggested suggestions={suggestions} />
+      <AlliesSuggested suggestions={suggestions} loadError={loadError} />
       <DraftsSection opportunityId={id} drafts={draftMap} />
       <TaskList o={o} />
     </main>

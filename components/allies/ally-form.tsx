@@ -36,7 +36,7 @@ export function AllyForm({ ally, onDone }: { ally?: AllyRow; onDone?: () => void
     setError(null)
     start(async () => {
       if (editing) await updateAllyAction(ally!.id, { name, type, reputation, ...patch })
-      else await createAllyAction({ id: id || name.toLowerCase().replace(/[^a-z0-9]+/g, '-'), name, type, reputation, ...patch })
+      else await createAllyAction({ id: id || name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''), name, type, reputation, ...patch })
       router.refresh()
       onDone?.()
     })

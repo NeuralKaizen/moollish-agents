@@ -2,14 +2,17 @@ import type { GapSuggestion } from '@/lib/agent/alliance/match'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 
-export function AlliesSuggested({ suggestions }: { suggestions: GapSuggestion[] }) {
+export function AlliesSuggested({ suggestions, loadError }: { suggestions: GapSuggestion[]; loadError?: boolean }) {
   const hasGaps = suggestions.length > 0
   const hasAny = suggestions.some((s) => s.candidates.length > 0)
 
   return (
     <Card className="p-5">
       <h2 className="mb-3 text-sm font-semibold">Aliados sugeridos</h2>
-      {!hasGaps && (
+      {loadError && (
+        <p className="text-sm text-muted-foreground">No se pudieron cargar los aliados en este momento. Intentá recargar.</p>
+      )}
+      {!loadError && !hasGaps && (
         <p className="text-sm text-muted-foreground">El análisis no identificó brechas de aliados para esta oportunidad.</p>
       )}
       {hasGaps && !hasAny && (
@@ -32,7 +35,7 @@ export function AlliesSuggested({ suggestions }: { suggestions: GapSuggestion[] 
               ) : (
                 <ul className="flex flex-col gap-2">
                   {s.candidates.map((c) => (
-                    <li key={c.ally.name} className="rounded-md border border-border p-3">
+                    <li key={`${c.ally.name}-${c.score}`} className="rounded-md border border-border p-3">
                       <div className="flex items-center justify-between gap-2">
                         <p className="text-sm font-medium">{c.ally.name}</p>
                         <Badge>Fit {c.score}</Badge>
