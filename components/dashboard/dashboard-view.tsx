@@ -8,7 +8,11 @@ import {
 import { PIPELINE_STATE_META, formatCurrency } from '@/lib/ui/format'
 import { WidgetCard } from './widget-card'
 
-export function DashboardView({ list, now }: { list: DemoOpportunity[]; now: number }) {
+export function DashboardView({ list, now, tracking }: {
+  list: DemoOpportunity[]
+  now: number
+  tracking: { vencidas: number; estaSemana: number; enEvaluacion: number }
+}) {
   const nuevas = newOpportunities(list, now, 72)
   const buckets = pipelineByState(list)
   const top = topToApply(list, 5)
@@ -19,6 +23,20 @@ export function DashboardView({ list, now }: { list: DemoOpportunity[]; now: num
 
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <WidgetCard title="Vencen esta semana">
+        <p className="text-3xl font-extrabold" style={{ color: '#c2611c' }}>{tracking.estaSemana}</p>
+        <p className="mt-1 text-xs text-muted-foreground">Postulaciones con deadline en ≤7 días</p>
+      </WidgetCard>
+
+      <WidgetCard title="Vencidas">
+        <p className="text-3xl font-extrabold" style={{ color: '#b23a2e' }}>{tracking.vencidas}</p>
+        <p className="mt-1 text-xs text-muted-foreground">Deadline ya pasado, aún en vuelo</p>
+      </WidgetCard>
+
+      <WidgetCard title="En evaluación">
+        <p className="text-3xl font-extrabold" style={{ color: '#9a6b12' }}>{tracking.enEvaluacion}</p>
+        <p className="mt-1 text-xs text-muted-foreground">Postulaciones esperando resultado</p>
+      </WidgetCard>
       <WidgetCard title="Recursos potenciales (ponderado)">
         <p className="text-3xl font-extrabold">{formatCurrency(Math.round(recursos), 'USD')}</p>
         <p className="mt-1 text-xs text-muted-foreground">Σ monto × probabilidad (score)</p>
