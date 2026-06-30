@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, jsonb } from 'drizzle-orm/pg-core'
+import { pgTable, text, timestamp, jsonb, boolean } from 'drizzle-orm/pg-core'
 import type { OpportunityAnalysis } from '@/lib/agent/schema'
 import type { DemoTask, PipelineState } from '@/lib/demo/types'
 
@@ -120,6 +120,10 @@ export const submissions = pgTable('submissions', {
   proximoHito: text('proximo_hito'),
   proximoHitoFecha: text('proximo_hito_fecha'),
   notas: text('notas'),
+  resultado: text('resultado').$type<'ganada' | 'perdida' | 'otro'>(),
+  montoOtorgado: text('monto_otorgado'),
+  leccion: text('leccion'),
+  leccionAnexada: boolean('leccion_anexada').notNull().default(false),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 })
 
