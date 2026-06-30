@@ -93,3 +93,19 @@ export const drafts = pgTable('drafts', {
 
 export type DraftRow = typeof drafts.$inferSelect
 export type NewDraftRow = typeof drafts.$inferInsert
+
+export const allies = pgTable('allies', {
+  id: text('id').primaryKey(), // slug, ej. 'univ-nacional'
+  name: text('name').notNull(),
+  type: text('type').notNull(), // matchea ally_type de las brechas
+  country: text('country'),
+  capabilities: text('capabilities'), // qué hacen (para el solapamiento)
+  experience: text('experience'),
+  contact: text('contact'),
+  recommendedRole: text('recommended_role'), // rol típico
+  reputation: text('reputation').$type<'alto' | 'medio' | 'bajo'>().notNull(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+})
+
+export type AllyRow = typeof allies.$inferSelect
+export type NewAllyRow = typeof allies.$inferInsert
