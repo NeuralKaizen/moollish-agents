@@ -1,10 +1,13 @@
 import { notFound } from 'next/navigation'
 import { getOpportunity } from '@/lib/db/queries'
 import { listDrafts } from '@/lib/db/drafts'
+import { listAllies, rowToProfile } from '@/lib/db/allies'
+import { suggestAllies, type GapSuggestion } from '@/lib/agent/alliance/match'
 import { AnalysisView } from '@/components/analysis/analysis-view'
 import { TaskList } from '@/components/pipeline/task-list'
 import { StateControl } from '@/components/pipeline/state-control'
 import { DraftsSection } from '@/components/drafts/drafts-section'
+import { AlliesSuggested } from '@/components/allies/allies-suggested'
 
 export const dynamic = 'force-dynamic'
 
@@ -14,10 +17,23 @@ export default async function OpportunityDetailPage({ params }: { params: Promis
   if (!o) return notFound()
   const draftMap = new Map((await listDrafts(id)).map((d) => [d.kind, d]))
 
+  let suggestions: GapSuggestion[] = []
+  try {
+    const allies = await listAllies()
+    suggestions = suggestAllies(
+      o.analysis.partners_needed,
+      allies.map(rowToProfile),
+      { themes: `${o.analysis.source.name} ${o.analysis.draft_outputs?.executive_summary ?? ''}`, country: null },
+    )
+  } catch (e) {
+    console.error('[oportunidad] no se pudieron cargar aliados sugeridos:', e)
+  }
+
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-4 px-4 py-8">
       <StateControl o={o} />
       <AnalysisView analysis={o.analysis} />
+      <AlliesSuggested suggestions={suggestions} />
       <DraftsSection opportunityId={id} drafts={draftMap} />
       <TaskList o={o} />
     </main>
