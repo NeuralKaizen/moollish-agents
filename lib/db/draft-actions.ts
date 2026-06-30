@@ -5,9 +5,9 @@ import { getOpportunity } from './queries'
 import { recordDraft } from './drafts'
 import { listFunders, rowToProfile } from './funders'
 import { matchFunder, formatFunderBlock } from '@/lib/agent/funder-match'
-import { generateConceptNote, generateConceptNoteWithOpenRouter } from '@/lib/agent/drafts/concept-note'
+import { generateDraft, generateDraftWithOpenRouter } from '@/lib/agent/drafts/generate'
 
-export async function generateConceptNoteAction(opportunityId: string): Promise<void> {
+export async function generateDraftAction(opportunityId: string, kind: string): Promise<void> {
   const o = await getOpportunity(opportunityId)
   if (!o) return
 
@@ -19,13 +19,7 @@ export async function generateConceptNoteAction(opportunityId: string): Promise<
     // sin financiadores → bloque genérico
   }
 
-  const note = await generateConceptNote(o.analysis, funderBlock, { generate: generateConceptNoteWithOpenRouter })
-  await recordDraft({
-    id: `${opportunityId}:concept_note`,
-    opportunityId,
-    kind: 'concept_note',
-    content: note,
-    missingData: note.missing_data,
-  })
+  const { content, missingData } = await generateDraft(kind, o.analysis, funderBlock, { generate: generateDraftWithOpenRouter })
+  await recordDraft({ id: `${opportunityId}:${kind}`, opportunityId, kind, content, missingData })
   revalidatePath(`/oportunidad/${opportunityId}`)
 }

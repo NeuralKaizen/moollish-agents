@@ -1,6 +1,5 @@
 import { pgTable, text, timestamp, jsonb } from 'drizzle-orm/pg-core'
 import type { OpportunityAnalysis } from '@/lib/agent/schema'
-import type { ConceptNote } from '@/lib/agent/drafts/concept-note'
 import type { DemoTask, PipelineState } from '@/lib/demo/types'
 
 export const opportunities = pgTable('opportunities', {
@@ -87,7 +86,7 @@ export const drafts = pgTable('drafts', {
     .notNull()
     .references(() => opportunities.id, { onDelete: 'cascade' }),
   kind: text('kind').notNull(), // 'concept_note'
-  content: jsonb('content').$type<ConceptNote>().notNull(),
+  content: jsonb('content').$type<Record<string, string>>().notNull(),
   missingData: jsonb('missing_data').$type<string[]>().notNull(),
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
 })

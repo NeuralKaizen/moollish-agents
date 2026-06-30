@@ -16,3 +16,7 @@ export async function getDraft(opportunityId: string, kind: string): Promise<Dra
     .limit(1)
   return rows[0]
 }
+
+export async function listDrafts(opportunityId: string): Promise<DraftRow[]> {
+  return db.select().from(drafts).where(eq(drafts.opportunityId, opportunityId))
+}
