@@ -79,3 +79,17 @@ export const detectedOpportunities = pgTable('detected_opportunities', {
 
 export type DetectedRow = typeof detectedOpportunities.$inferSelect
 export type NewDetectedRow = typeof detectedOpportunities.$inferInsert
+
+export const drafts = pgTable('drafts', {
+  id: text('id').primaryKey(), // '<opportunityId>:<kind>' — un vigente por tipo
+  opportunityId: text('opportunity_id')
+    .notNull()
+    .references(() => opportunities.id, { onDelete: 'cascade' }),
+  kind: text('kind').notNull(), // 'concept_note'
+  content: jsonb('content').notNull(),
+  missingData: jsonb('missing_data').$type<string[]>().notNull(),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+})
+
+export type DraftRow = typeof drafts.$inferSelect
+export type NewDraftRow = typeof drafts.$inferInsert
