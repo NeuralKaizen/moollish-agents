@@ -17,6 +17,7 @@ export function SubmissionSection({ opportunityId, submission }: { opportunityId
   const router = useRouter()
   const [pending, start] = useTransition()
   const [saved, setSaved] = useState(false)
+  const [saveError, setSaveError] = useState(false)
 
   function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -31,10 +32,16 @@ export function SubmissionSection({ opportunityId, submission }: { opportunityId
       notas: text('notas'),
     }
     setSaved(false)
+    setSaveError(false)
     start(async () => {
-      await saveSubmissionAction(opportunityId, patch)
-      router.refresh()
-      setSaved(true)
+      try {
+        await saveSubmissionAction(opportunityId, patch)
+        router.refresh()
+        setSaved(true)
+      } catch (err) {
+        console.error('[submission-section] no se pudo guardar:', err)
+        setSaveError(true)
+      }
     })
   }
 
@@ -59,6 +66,7 @@ export function SubmissionSection({ opportunityId, submission }: { opportunityId
         <div className="flex items-center gap-3">
           <Button type="submit" disabled={pending}>{pending ? 'Guardando…' : 'Guardar seguimiento'}</Button>
           {saved && !pending && <span className="text-xs text-muted-foreground">Guardado ✓</span>}
+          {saveError && !pending && <span className="text-xs text-red-600">Error al guardar. Reintentá.</span>}
         </div>
       </form>
     </Card>
