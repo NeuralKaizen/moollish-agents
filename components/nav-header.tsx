@@ -12,6 +12,7 @@ const LINKS = [
   { href: '/financiadores', label: 'Financiadores' },
   { href: '/aliados', label: 'Aliados' },
   { href: '/radar', label: 'Radar' },
+  { href: '/seguimiento', label: 'Seguimiento' },
 ]
 
 export function NavHeader() {
