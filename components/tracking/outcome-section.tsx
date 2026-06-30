@@ -81,7 +81,7 @@ export function OutcomeSection({ opportunityId, submission }: { opportunityId: s
         </div>
       </form>
       <div className="mt-4 flex items-center gap-3 border-t border-border pt-4">
-        <Button type="button" variant="outline" disabled={lessonPending} onClick={anexar}>
+        <Button type="button" variant="outline" disabled={lessonPending || !submission?.leccion} onClick={anexar}>
           {lessonPending ? 'Anexando…' : 'Guardar lección al financiador'}
         </Button>
         {submission?.leccionAnexada && !lessonMsg && <span className="text-xs text-muted-foreground">Ya anexada al financiador ✓</span>}

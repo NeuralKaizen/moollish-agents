@@ -27,7 +27,7 @@ export async function recordOutcomeAction(
   opportunityId: string,
   outcome: { resultado: Resultado | null; montoOtorgado: string | null; leccion: string | null },
 ): Promise<void> {
-  const patch = { resultado: outcome.resultado, montoOtorgado: outcome.montoOtorgado, leccion: outcome.leccion }
+  const patch = { resultado: outcome.resultado, montoOtorgado: outcome.montoOtorgado, leccion: outcome.leccion, leccionAnexada: false }
   await db.insert(submissions).values({ id: opportunityId, ...patch })
     .onConflictDoUpdate({ target: submissions.id, set: { ...patch, updatedAt: new Date() } })
   if (outcome.resultado) {
@@ -49,9 +49,10 @@ export async function saveLessonToFunderAction(
   if (!o || !leccion) return { status: 'sin_leccion' }
 
   const rows = await listFunders()
-  const matched = matchFunder(JSON.stringify(o.analysis), rows.map(rowToProfile))
+  const profiles = rows.map(rowToProfile)
+  const matched = matchFunder(JSON.stringify(o.analysis), profiles)
   if (!matched) return { status: 'sin_financiador' }
-  const row = rows.find((r) => r.name === matched.name)
+  const row = rows[profiles.indexOf(matched)]
   if (!row) return { status: 'sin_financiador' }
 
   await updateFunderAction(row.id, { lessonsLearned: appendLesson(row.lessonsLearned, leccion, new Date()) })
