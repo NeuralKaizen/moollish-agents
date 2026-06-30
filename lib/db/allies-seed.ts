@@ -1,0 +1,28 @@
+import type { NewAllyRow } from './schema'
+
+export const ALLY_SEED: NewAllyRow[] = [
+  { id: 'univ-nacional', name: 'Universidad Nacional', type: 'universidad / centro de investigación', country: 'Colombia',
+    capabilities: 'Investigación aplicada, validación científica, formulación de teoría de cambio, medición de impacto.',
+    experience: 'Proyectos CTeI con Minciencias y cooperación internacional.',
+    contact: 'vicerrectoria.investigacion@unal.edu.co', recommendedRole: 'Socio científico / validación', reputation: 'alto' },
+  { id: 'fundacion-local', name: 'Fundación Raíces', type: 'ONG / fundación local', country: 'Colombia',
+    capabilities: 'Trabajo comunitario, llegada territorial, enfoque social, cofinanciación.',
+    experience: 'Implementación de proyectos rurales y sociales en regiones apartadas.',
+    contact: 'alianzas@raices.org', recommendedRole: 'Implementador territorial', reputation: 'medio' },
+  { id: 'foundation-nova', name: 'Foundation Nova', type: 'socio internacional / fundación', country: 'Estados Unidos',
+    capabilities: 'Cofinanciación, redes internacionales, escalamiento, evidencia de impacto.',
+    experience: 'Cofinancia pilotos de innovación con potencial de escala global.',
+    contact: 'partnerships@nova.org', recommendedRole: 'Cofinanciador / partner internacional', reputation: 'alto' },
+  { id: 'agrotech-partners', name: 'AgroTech Partners', type: 'socio internacional / empresa', country: 'España',
+    capabilities: 'Consorcios europeos, transferencia tecnológica, rol coordinador, escalabilidad.',
+    experience: 'Coordina consorcios Horizon Europe e Innovate UK.',
+    contact: 'consortia@agrotechpartners.eu', recommendedRole: 'Coordinador de consorcio', reputation: 'medio' },
+  { id: 'ecomonitor', name: 'EcoMonitor', type: 'especialista ambiental', country: 'Colombia',
+    capabilities: 'Monitoreo ambiental, restauración, biodiversidad, datos satelitales, alertas tempranas.',
+    experience: 'Proyectos de restauración y monitoreo con corporaciones ambientales (CAR).',
+    contact: 'proyectos@ecomonitor.co', recommendedRole: 'Especialista ambiental', reputation: 'medio' },
+  { id: 'gobernacion-aliada', name: 'Gobernación aliada', type: 'alcaldía / gobernación', country: 'Colombia',
+    capabilities: 'Contrapartida pública, articulación territorial, sostenibilidad, política pública.',
+    experience: 'Convenios de cofinanciación y articulación con proyectos regionales.',
+    contact: 'despacho@gobernacion.gov.co', recommendedRole: 'Socio público / contrapartida', reputation: 'medio' },
+]
