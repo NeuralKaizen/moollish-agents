@@ -10,6 +10,7 @@ import { StateControl } from '@/components/pipeline/state-control'
 import { DraftsSection } from '@/components/drafts/drafts-section'
 import { AlliesSuggested } from '@/components/allies/allies-suggested'
 import { SubmissionSection } from '@/components/tracking/submission-section'
+import { OutcomeSection } from '@/components/tracking/outcome-section'
 
 export const dynamic = 'force-dynamic'
 
@@ -47,6 +48,7 @@ export default async function OpportunityDetailPage({ params }: { params: Promis
       <AlliesSuggested suggestions={suggestions} loadError={loadError} />
       <DraftsSection opportunityId={id} drafts={draftMap} />
       <SubmissionSection opportunityId={id} submission={submission} />
+      <OutcomeSection opportunityId={id} submission={submission} />
       <TaskList o={o} />
     </main>
   )
