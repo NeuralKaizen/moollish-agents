@@ -109,3 +109,19 @@ export const allies = pgTable('allies', {
 
 export type AllyRow = typeof allies.$inferSelect
 export type NewAllyRow = typeof allies.$inferInsert
+
+export const submissions = pgTable('submissions', {
+  id: text('id') // = opportunityId
+    .primaryKey()
+    .references(() => opportunities.id, { onDelete: 'cascade' }),
+  fechaPresentacion: text('fecha_presentacion'),
+  radicado: text('radicado'),
+  fechaResultadoEsp: text('fecha_resultado_esp'),
+  proximoHito: text('proximo_hito'),
+  proximoHitoFecha: text('proximo_hito_fecha'),
+  notas: text('notas'),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+})
+
+export type SubmissionRow = typeof submissions.$inferSelect
+export type NewSubmissionRow = typeof submissions.$inferInsert
