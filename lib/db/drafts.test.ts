@@ -15,13 +15,14 @@ describe.skipIf(!hasDb)('drafts queries (integración)', () => {
 
   it('recordDraft inserta y getDraft lo recupera; regenerar reemplaza', async () => {
     await db.insert(opportunities).values(opportunityToRow(makeOpportunity(analysis, new Date().toISOString())))
-    await recordDraft({ id: 'op-cn:concept_note', opportunityId: 'op-cn', kind: 'concept_note', content: { problema: 'A' }, missingData: ['x'] })
+    const stub = { problema: 'A', solucion: '', beneficiarios: '', innovacion: '', resultados: '', presupuesto_marco: '', missing_data: [] }
+    await recordDraft({ id: 'op-cn:concept_note', opportunityId: 'op-cn', kind: 'concept_note', content: stub, missingData: ['x'] })
     let d = await getDraft('op-cn', 'concept_note')
-    expect((d?.content as { problema?: string }).problema).toBe('A')
+    expect(d?.content.problema).toBe('A')
 
-    await recordDraft({ id: 'op-cn:concept_note', opportunityId: 'op-cn', kind: 'concept_note', content: { problema: 'B' }, missingData: [] })
+    await recordDraft({ id: 'op-cn:concept_note', opportunityId: 'op-cn', kind: 'concept_note', content: { ...stub, problema: 'B' }, missingData: [] })
     d = await getDraft('op-cn', 'concept_note')
-    expect((d?.content as { problema?: string }).problema).toBe('B') // reemplazado
+    expect(d?.content.problema).toBe('B') // reemplazado
     expect(d?.missingData).toEqual([])
   })
 
